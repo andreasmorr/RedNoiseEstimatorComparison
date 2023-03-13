@@ -5,8 +5,9 @@
 #SBATCH --output=%x-%j.out 
 #SBATCH --error=%x-%j.err
 #SBATCH --account=tipes
-#SBATCH --nodes=4
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks=64
+#SBATCH --nodes=16
+#SBATCH --ntasks-per-node=4
 #SBATCH --cpus-per-task=1
 #SBATCH --workdir=/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/
 
@@ -18,18 +19,10 @@ echo "------------------------------------------------------------"
 module load anaconda
 source activate env_andreasm
 
-# export I_MPI_PMI_LIBRARY=/p/system/slurm/lib/libpmi.so
-for i in {0..7}
-do
-    for j in {0..7}
-    do
-        echo " - windowsize_counter  $i"
-        echo " - observation_length_counter $j"
-        echo " "
-        srun python run_part.py  $i $j
-        #srun -n $SLURM_NTASKS python -m mpi4py run_part.py  $i $j
-    done
-done
+export I_MPI_PMI_LIBRARY=/p/system/slurm/lib/libpmi.so
+
+srun -n 64 python run_part.py
+
 
 
 

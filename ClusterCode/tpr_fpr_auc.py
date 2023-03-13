@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import scipy
+from scipy import stats
 from datetime import datetime
 import EstimationMethods
 import SampleGeneration
@@ -69,9 +69,9 @@ def comparison_taus(n, windowsize, leap, oversampling, scenario_size, observatio
             if method_number == 2 or method_number == 3:
                 results_pos = -1*results_pos
                 results_neg = -1 * results_neg
-            taus_pos[method_number].append(scipy.stats.kendalltau(range(len(results_pos)),
+            taus_pos[method_number].append(stats.kendalltau(range(len(results_pos)),
                                                                   results_pos)[0])
-            taus_neg[method_number].append(scipy.stats.kendalltau(range(len(results_neg)),
+            taus_neg[method_number].append(stats.kendalltau(range(len(results_neg)),
                                                                   results_neg)[0])
     return [taus_pos,taus_neg]
 

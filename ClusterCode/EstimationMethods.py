@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
-from scipy import fft, optimize
+from scipy import optimize
+from numpy import fft
 import numpy as np
 
 
