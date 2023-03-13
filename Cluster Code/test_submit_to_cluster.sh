@@ -23,7 +23,7 @@ j=0
 echo " - windowsize_counter  $i"
 echo " - observation_length_counter $j"
 echo " "
-srun -n python run_part.py  $i $j
+srun python run_part.py  $i $j
 
 
 
