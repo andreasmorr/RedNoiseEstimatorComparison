@@ -2,8 +2,8 @@
 
 #SBATCH --qos=short
 #SBATCH --job-name=estimator_aucs
-#SBATCH --output=%x-%j.out 
-#SBATCH --error=%x-%j.err
+#SBATCH --output=/err/%x-%j.out 
+#SBATCH --error=/out/%x-%j.err
 #SBATCH --account=tipes
 #SBATCH --nodes=4
 #SBATCH --ntasks-per-node=1
