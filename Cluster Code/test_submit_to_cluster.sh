@@ -8,7 +8,7 @@
 #SBATCH --nodes=4
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
-#SBATCH --workdir=/home/andreasm/RedNoiseEstimatorComparison/
+#SBATCH --workdir=/home/andreasm/RedNoiseEstimatorComparison/Cluster\ Code
 
 echo "------------------------------------------------------------"
 echo "SLURM JOB ID: $SLURM_JOBID"
