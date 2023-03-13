@@ -10,8 +10,8 @@ import os
 
 
 number_of_windows = 20
-windowsizes = [200]#[200,400,600,800,1000,1200,1400,1600]
-observation_lengths = [0.3]#[0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+windowsizes = [200,400,600,800,1000,1200,1400,1600]
+observation_lengths = [0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
 oversampling = 10
 scenario_size = 10
 

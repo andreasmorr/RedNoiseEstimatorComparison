@@ -18,7 +18,7 @@ echo "------------------------------------------------------------"
 module load anaconda
 source activate env_andreasm
 
-export I_MPI_PMI_LIBRARY=/p/system/slurm/lib/libpmi.so
+# export I_MPI_PMI_LIBRARY=/p/system/slurm/lib/libpmi.so
 for i in {0..7}
 do
     for j in {0..7}
@@ -26,7 +26,8 @@ do
         echo " - windowsize_counter  $i"
         echo " - observation_length_counter $j"
         echo " "
-        srun -n $SLURM_NTASKS python -m mpi4py run_part.py  $i $j
+        srun python -m mpi4py run_part.py  $i $j
+        #srun -n $SLURM_NTASKS python -m mpi4py run_part.py  $i $j
     done
 done
 
