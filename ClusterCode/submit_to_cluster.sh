@@ -26,7 +26,7 @@ do
         echo " - windowsize_counter  $i"
         echo " - observation_length_counter $j"
         echo " "
-        srun python -m mpi4py run_part.py  $i $j
+        srun python run_part.py  $i $j
         #srun -n $SLURM_NTASKS python -m mpi4py run_part.py  $i $j
     done
 done
