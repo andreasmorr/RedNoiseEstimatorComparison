@@ -2,6 +2,7 @@ import tpr_fpr_auc
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
 import seaborn as sns
 import time
 import os
@@ -38,6 +39,8 @@ def plot_heat_auc():
             sns.heatmap(auc_df, ax=axs[method], yticklabels=True, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
         else:
             sns.heatmap(auc_df, ax=axs[method], yticklabels=False, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
+        axs[method].add_patch(Rectangle((4,7),1,1,fill=False,edgecolor="blue"))
+        axs[method].add_patch(Rectangle((4,2),1,1,fill=False,edgecolor="red"))
         axs[method].set_title(method_names[method])
         axs[method].set_aspect("equal", adjustable='box')
         axs[method].text(-0.1, 1.1, labels[method], transform=axs[method].transAxes, fontsize=23,
