@@ -39,9 +39,10 @@ def plot_heat_auc():
             sns.heatmap(auc_df, ax=axs[method], yticklabels=True, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
         else:
             sns.heatmap(auc_df, ax=axs[method], yticklabels=False, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
-        axs[method].add_patch(Rectangle((4,7),1,1,fill=False,edgecolor="blue"))
-        axs[method].add_patch(Rectangle((4,2),1,1,fill=False,edgecolor="red"))
+        axs[method].add_patch(Rectangle((7,5),1,1,fill=False,edgecolor="blue", lw=2))
+        axs[method].add_patch(Rectangle((2,5),1,1,fill=False,edgecolor="red", lw=2))
         axs[method].set_title(method_names[method])
+        axs[method].set_xlim([0,8.1])
         axs[method].set_aspect("equal", adjustable='box')
         axs[method].text(-0.1, 1.1, labels[method], transform=axs[method].transAxes, fontsize=23,
                          verticalalignment='top', bbox=props)
@@ -49,7 +50,7 @@ def plot_heat_auc():
     fig.colorbar(axs[3].collections[0], cax=axs[4])
     axs[0].set_ylabel("Length of the time series")   
     axs[3].collections[0].colorbar.set_label("AUC")
-    plt.savefig("Plots/heat_" + save_names[method] + "_" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    plt.savefig("Plots/heat_" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     #plt.show()
 
 plot_heat_auc()
