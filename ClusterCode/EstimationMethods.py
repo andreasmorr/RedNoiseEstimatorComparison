@@ -46,7 +46,7 @@ def error_psd(params, n, observed_psd):
     elambda_ = np.exp(lambda_)
     etheta_ = np.exp(theta_)
     cos_array = [np.cos(2*np.pi*f) for f in fft.fftfreq(n)[1:round(n/2)]]
-    if abs(abs(lambda_) - abs(theta_)) < 0.01:
+    if abs(abs(lambda_) - abs(theta_)) < 0.05:
         theoretical_psd = np.array([kappa_ ** 2 / (4 * lambda_**3) * (-lambda_-cos_array[i]*np.sinh(lambda_) +
                                                                 np.cosh(lambda_) * (lambda_*cos_array[i] +
                                                                                       np.sinh(lambda_)))
@@ -87,7 +87,7 @@ def acor_struc(timeseries, relevant_lags=1):
 def error_acs(params, observed_ac):
     lambda_ = params[0]
     theta_ = params[1]
-    if abs(abs(lambda_) - abs(theta_)) < 0.01:
+    if abs(abs(lambda_) - abs(theta_)) < 0.05:
         theoretical_ac = np.array([np.exp(-lambda_ * x) * (1 + lambda_ * x) for x in range(len(observed_ac))])
     else:
         theoretical_ac = np.array([(theta_ * np.exp(-lambda_ * x) - lambda_ * np.exp(-theta_ * x)) / (theta_ - lambda_)
