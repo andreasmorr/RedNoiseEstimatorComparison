@@ -7,7 +7,7 @@
 #SBATCH --account=tipes
 #SBATCH --ntasks=64
 #SBATCH --nodes=16
-#SBATCH --ntasks-per-node=4
+#SBATCH --ntasks-per-node=6
 #SBATCH --cpus-per-task=1
 #SBATCH --workdir=/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/
 
