@@ -318,8 +318,8 @@ def plot_roc_curves_from_taus(taus, observation_length):
                     roc_curves[method_number][0][round(len(roc_curves[method_number][1])/2)],c=cols[method_number],
                     marker="*", s=40)
     plt.plot([0, 100], [0, 100], c="black", linestyle="dashed")
-    plt.xlim([-0.4, 100])
-    plt.ylim([0, 100.4])
+    plt.xlim([-1, 100])
+    plt.ylim([0, 101])
     plt.legend(["Variance " + str(round(roc_curves[0][2],2)), "AC(1) " + str(round(roc_curves[1][2],2)),
                 "ACS " + str(round(roc_curves[2][2],2)), "PSD " + str(round(roc_curves[3][2],2))], loc="lower right")
     plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
@@ -431,6 +431,102 @@ def plot_example(n, observation_length, windowsize, leap, lambda_scale, theta_st
     sampB.set_xlim([0, n])
     sampB.text(-0.14, 0.95, labels[3], transform=sampB.transAxes, fontsize=20,
                verticalalignment='top', bbox=props)
+
+    plt.savefig("Plots/example" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    plt.show()
+
+
+def plot_example_est(n, observation_length, windowsize, leap, lambda_scale, theta_start, theta_end, kappa_start, kappa_end):
+    oversampling = 10
+    theta_min = 0.5
+    theta_max = 4
+    kappa_min = 0.5
+    kappa_max = 4
+    lambda_scale_min = 0.3
+    lambda_scale_max = 0.5
+    lambda_pos = np.array([np.sqrt(1 - i / n) for i in range(n)])
+    lambda_neg = np.array([1 for i in range(n)])
+    short_n = round(n * observation_length)
+    short_lambda_pos = lambda_pos[:short_n]
+    short_lambda_neg = lambda_neg[:short_n]
+    theta_ = np.array([theta_start * (1 - i / short_n) + theta_end * i / short_n for i in range(short_n)])
+    kappa_ = np.array([kappa_start * (1 - i / short_n) + kappa_end * i / short_n for i in range(short_n)])
+    sample_pos = SampleGeneration.generate_path(short_n, lambda_scale * short_lambda_pos, theta_, kappa_,
+                                                oversampling=oversampling)
+    sample_neg = SampleGeneration.generate_path(short_n, lambda_scale * short_lambda_neg, theta_, kappa_,
+                                                oversampling=oversampling)
+    plt.rcParams.update({'font.size': 17})
+    fig, [[scenA, scenB], [sampA, sampB], [estA, estB]] = plt.subplots(nrows=3, ncols=2, figsize=(14, 10),
+                                                         gridspec_kw={'height_ratios': [3, 1, 1]}, sharex=True)
+    props = dict(edgecolor="none", facecolor='white', alpha=0)
+    scenA.plot(lambda_scale * lambda_pos, color="black", linewidth=2)
+    scenA.plot(theta_, color="black", linestyle="dashdot", linewidth=2)
+    scenA.plot(kappa_, color="black", linestyle="dotted", linewidth=2)
+    scenA.legend([r"$\lambda$", r"$\theta$", r"$\kappa$"], loc="center right", fontsize=19)
+    scenA.vlines(len(theta_), 0, max(theta_max, kappa_max), color="lightgrey")
+    scenA.plot([min(theta_min, kappa_min) for x in theta_], linestyle="dashed", color="red")
+    scenA.plot([max(theta_max, kappa_max) for x in theta_], linestyle="dashed", color="red")
+    scenA.text(-0.14, 0.95, labels[0], transform=scenA.transAxes, fontsize=20,
+               verticalalignment='top', bbox=props)
+    scenA.set_ylim([0,max(theta_max, kappa_max)+0.2])
+    scenA.plot([lambda_scale_min for x in range(500)], linestyle="dashed", color="red")
+
+    scenB.plot(lambda_scale * lambda_neg, color="black", linewidth=2)
+    scenB.plot(theta_, color="black", linestyle="dashdot", linewidth=2)
+    scenB.plot(kappa_, color="black", linestyle="dotted", linewidth=2)
+    scenB.legend([r"$\lambda$", r"$\theta$", r"$\kappa$"], loc="center right", fontsize=19)
+    scenB.vlines(len(theta_), 0, max(theta_max, kappa_max), color="lightgrey")
+    scenB.plot([min(theta_min, kappa_min) for x in theta_], linestyle="dashed", color="red")
+    scenB.plot([max(theta_max, kappa_max) for x in theta_], linestyle="dashed", color="red")
+    scenB.text(-0.14, 0.95, labels[1], transform=scenB.transAxes, fontsize=20,
+               verticalalignment='top', bbox=props)
+    scenB.set_ylim([0, max(theta_max, kappa_max) + 0.2])
+    scenB.plot([lambda_scale_min for x in range(500)], linestyle="dashed", color="red")
+
+    sampA.plot(sample_pos, linewidth=0.5, color="black")
+    sampA.axvline(len(theta_), color="lightgrey")
+    sampA.set_ylim([-max(abs(np.array(sample_pos))), max(abs(np.array(sample_pos)))])
+    sampA.plot([0 for x in range(len(theta_))], color="red")
+    for w in range(0, len(theta_) - windowsize, leap):
+        sampA.axvline(w, ymin=0.45, ymax=0.55, color="red")
+        sampA.axvline(w + windowsize, ymin=0.45, ymax=0.55, color="red")
+    sampA.set_xlim([0, n])
+    sampA.text(-0.14, 0.95, labels[2], transform=sampA.transAxes, fontsize=20,
+               verticalalignment='top', bbox=props)
+    sampA.legend(["$X_t$"])
+
+    sampB.plot(sample_neg, linewidth=0.5, color="black")
+    sampB.axvline(len(theta_), color="lightgrey")
+    sampB.set_ylim([-max(abs(np.array(sample_neg))), max(abs(np.array(sample_neg)))])
+    sampB.plot([0 for x in range(len(theta_))], color="red")
+    for w in range(0, len(theta_) - windowsize, leap):
+        sampB.axvline(w, ymin=0.45, ymax=0.55, color="red")
+        sampB.axvline(w + windowsize, ymin=0.45, ymax=0.55, color="red")
+    sampB.set_xlim([0, n])
+    sampB.text(-0.14, 0.95, labels[3], transform=sampB.transAxes, fontsize=20,
+               verticalalignment='top', bbox=props)
+    
+    estA.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_var(sample_pos[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=2, color="black",linestyle = "dashed")
+    estA.plot([0],[0], linewidth=2, color="black",linestyle = "dotted")
+    estA2 = estA.twinx()
+    estA2.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_acor1(sample_pos[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=2, color="black",linestyle = "dotted")
+    estA.axvline(len(theta_), color="lightgrey")
+    estA.set_xlim([0, n])
+    estA.text(-0.14, 0.95, labels[4], transform=estA.transAxes, fontsize=20,
+               verticalalignment='top', bbox=props)
+    estA.legend(["Var","AC(1)"],fontsize=12)
+    estA.set_xlabel("Time $t$")
+
+    estB.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_var(sample_neg[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=2, color="black",linestyle = "dashed")
+    estB.plot([0],[0], linewidth=2, color="black",linestyle = "dotted")
+    estB2 = estB.twinx()
+    estB2.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_acor1(sample_neg[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=2, color="black",linestyle = "dotted")
+    estB.axvline(len(theta_), color="lightgrey")
+    estB.set_xlim([0, n])
+    estB.text(-0.14, 0.95, labels[5], transform=estB.transAxes, fontsize=20,
+               verticalalignment='top', bbox=props)
+    estB.legend(["Var","AC(1)"],fontsize=12)
+    estB.set_xlabel("Time $t$")
 
     plt.savefig("Plots/example" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
