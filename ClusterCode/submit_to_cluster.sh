@@ -21,7 +21,7 @@ source activate env_andreasm
 
 export I_MPI_PMI_LIBRARY=/p/system/slurm/lib/libpmi.so
 
-srun -n 64 python run_part.py
+srun -n 81 python run_part.py
 
 
 
