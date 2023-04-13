@@ -318,8 +318,8 @@ def plot_roc_curves_from_taus(taus, observation_length):
                     roc_curves[method_number][0][round(len(roc_curves[method_number][1])/2)],c=cols[method_number],
                     marker="*", s=40)
     plt.plot([0, 100], [0, 100], c="black", linestyle="dashed")
-    plt.xlim([-1, 100])
-    plt.ylim([0, 101])
+    plt.xlim([-1, 101])
+    plt.ylim([-1, 101])
     plt.legend(["Variance " + str(round(roc_curves[0][2],2)), "AC(1) " + str(round(roc_curves[1][2],2)),
                 "ACS " + str(round(roc_curves[2][2],2)), "PSD " + str(round(roc_curves[3][2],2))], loc="lower right")
     plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
@@ -329,7 +329,7 @@ def plot_roc_curves_from_taus(taus, observation_length):
 def plot_mult_roc_curves_from_taus(taus, observation_length, label_offset=0):
     number_of_figs = len(taus)
     plt.rcParams.update({'font.size': 15})
-    fig, axs = plt.subplots(nrows=1, ncols=number_of_figs)
+    fig, axs = plt.subplots(nrows=1, ncols=number_of_figs, figsize=(12,24))
     fig.tight_layout(pad=5.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for fig_number in range(number_of_figs):
@@ -354,12 +354,12 @@ def plot_mult_roc_curves_from_taus(taus, observation_length, label_offset=0):
                     "ACS [" + str(round(roc_curves[2][2],2)) + "]", "PSD [" + str(round(roc_curves[3][2],2)) + "]"]
         legend_lines = [mlines.Line2D([], [], label=line_labels[method], color=cols[method], marker=markers[method], markersize=8) for method in range(4)]
         axs[fig_number].plot([0, 100], [0, 100], c="black", linestyle="dashed")
-        axs[fig_number].set_xlim([-0.4, 100])
-        axs[fig_number].set_ylim([0, 100.4])
+        axs[fig_number].set_xlim([-1, 101])
+        axs[fig_number].set_ylim([-1, 101])
         axs[fig_number].legend(handles=legend_lines, loc="lower right", fontsize=16)
         axs[fig_number].text(-0.23, 0.97, labels[fig_number + label_offset], transform=axs[fig_number].transAxes,
                              fontsize=20, verticalalignment='top', bbox=props)
-    #plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
 
 
