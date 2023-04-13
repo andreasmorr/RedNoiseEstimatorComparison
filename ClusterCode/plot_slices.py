@@ -16,9 +16,9 @@ number_of_windows = tpr_fpr_auc.number_of_windows
 windowsizes = tpr_fpr_auc.windowsizes
 observation_lengths = tpr_fpr_auc.observation_lengths
 
-number_of_windows = 20
-windowsizes = [200,350,500,700,900,1100,1300,1500]
-observation_lengths = [0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+#number_of_windows = 20
+#windowsizes = [200,350,500,700,900,1100,1300,1500]
+#observation_lengths = [0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
 
 def plot_slices(window_index,obslen_index):
     method_names = ["Variance", "Lag-1 autocorrelation", "$\lambda$ via ACS", "$\lambda$ via PSD"]

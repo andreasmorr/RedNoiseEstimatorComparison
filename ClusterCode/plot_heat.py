@@ -16,9 +16,9 @@ number_of_windows = tpr_fpr_auc.number_of_windows
 windowsizes = tpr_fpr_auc.windowsizes
 observation_lengths = tpr_fpr_auc.observation_lengths
 
-number_of_windows = 20
-windowsizes = [200,350,500,700,900,1100,1300,1500]
-observation_lengths = [0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+#number_of_windows = 20
+#windowsizes = [200,350,500,700,900,1100,1300,1500]
+#observation_lengths = [0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
 
 def plot_heat_auc():
     method_names = ["Variance", "Lag-1 autocorrelation", "$\lambda$ via ACS", "$\lambda$ via PSD"]
@@ -46,11 +46,11 @@ def plot_heat_auc():
             sns.heatmap(auc_df, ax=axs[method], yticklabels=False, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
         axs[method].add_patch(Rectangle((7,5),1,1,fill=False,edgecolor="blue", lw=2))
         axs[method].add_patch(Rectangle((2,5),1,1,fill=False,edgecolor="red", lw=2))
-        axs[method].add_patch(Rectangle((0,7),8,1,fill=False,edgecolor="purple", lw=2, linestyle="dotted"))
-        axs[method].add_patch(Rectangle((0,0),1,8,fill=False,edgecolor="purple", lw=2, linestyle="dashed"))
+        axs[method].add_patch(Rectangle((0,8),9,1,fill=False,edgecolor="purple", lw=2, linestyle="dotted"))
+        axs[method].add_patch(Rectangle((0,0),1,9,fill=False,edgecolor="purple", lw=2, linestyle="dashed"))
         axs[method].set_title(method_names[method],fontsize=20)
-        axs[method].set_xlim([-0.1,8.1])
-        axs[method].set_ylim([8.1,-0.1])
+        axs[method].set_xlim([-0.1,9.1])
+        axs[method].set_ylim([9.1,-0.1])
         axs[method].set_aspect("equal", adjustable='box')
         axs[method].text(-0.1, 1.1, labels[method], transform=axs[method].transAxes, fontsize=23,
                          verticalalignment='top', bbox=props)
