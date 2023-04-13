@@ -1,0 +1,454 @@
+srun: Warning: can't honor --ntasks-per-node set to 6 which doesn't match the requested tasks 81 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+IndexError: list index out of range
+IndexError: list index out of range
+Traceback (most recent call last):
+    observation_length=observation_lengths[j_]
+    observation_length=observation_lengths[j_]
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+IndexError: list index out of range
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+    observation_length=observation_lengths[j_]
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+IndexError: list index out of range
+IndexError: list index out of range
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+    observation_length=observation_lengths[j_]
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+IndexError: list index out of range
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 83, in get_tpr_fpr_auc
+    observation_length=observation_lengths[j_]
+IndexError: list index out of range
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:64: RuntimeWarning: invalid value encountered in log
+  theoretical_psd = np.log(frequency_mean(theoretical_psd))
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:64: RuntimeWarning: invalid value encountered in log
+  theoretical_psd = np.log(frequency_mean(theoretical_psd))
+srun: error: cs-i14c04b05: tasks 9-10: Exited with exit code 1
+srun: Terminating job step 26395008.0
+srun: error: cs-i14c04b10: tasks 16-20: Exited with exit code 1
+slurmstepd: error: *** STEP 26395008.0 ON cs-i14c03b10 CANCELLED AT 2023-04-13T11:19:38 ***
+srun: error: cs-i14c05b09: tasks 46-50: Exited with exit code 1
+srun: error: cs-i14c05b05: tasks 36-40: Exited with exit code 1
+srun: error: cs-i14c06b04: tasks 66-70: Exited with exit code 1
+srun: error: cs-i14c05b02: tasks 21-25: Exited with exit code 1
+srun: error: cs-i14c05b07: tasks 41-45: Exited with exit code 1
+srun: error: cs-i14c05b03: tasks 26-30: Exited with exit code 1
+srun: error: cs-i14c05b04: tasks 31-35: Exited with exit code 1
+srun: error: cs-i14c04b09: tasks 11-15: Exited with exit code 1
+srun: error: cs-i14c05b10: tasks 51-55: Exited with exit code 1
+srun: error: cs-i14c06b12: tasks 76-80: Exited with exit code 1
+srun: error: cs-i14c06b01: tasks 61-65: Exited with exit code 1
+srun: error: cs-i14c06b10: tasks 71-75: Exited with exit code 1
+srun: error: cs-i14c05b12: tasks 56-60: Exited with exit code 1
