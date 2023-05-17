@@ -1,4 +1,6 @@
 import tpr_fpr_auc
+import importlib
+importlib.reload(tpr_fpr_auc)
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -47,7 +49,7 @@ def plot_slices(window_index,obslen_index):
     axs[0].set_ylabel("AUC",fontsize=12)
     for method in range(4):
         axs[0].plot(np.round(dfs[method].columns,0).astype(int),dfs[method].iloc[window_index,:],c=cols[method])
-    axs[0].legend(["Variance", "AC(1)", "$\lambda$ via ACS", "$\lambda$ via PSD"])
+    axs[0].legend(["Variance", "AC(1)", "ACS", "PSD"],loc="upper left")
     axs[0].text(-0.15, 0.97, labels[0], transform=axs[0].transAxes,
                             fontsize=20, verticalalignment='top', bbox=props)
     axs[0].tick_params(axis="x",labelsize=14)
@@ -58,7 +60,7 @@ def plot_slices(window_index,obslen_index):
     axs[1].set_xlabel("Length of the time series",fontsize=12)
     for method in range(4):
         axs[1].plot(np.round(dfs[method].index,0).astype(int),dfs[method].iloc[:,obslen_index],c=cols[method])
-    axs[1].legend(["Variance", "AC(1)", "$\lambda$ via ACS", "$\lambda$ via PSD"])
+    axs[1].legend(["Variance", "AC(1)", "ACS", "PSD"],loc="upper left")
     axs[1].text(-0.15, 0.97, labels[1], transform=axs[1].transAxes,
                             fontsize=20, verticalalignment='top', bbox=props)
     axs[1].tick_params(axis="x",labelsize=14)

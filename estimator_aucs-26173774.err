@@ -1,7 +1,0 @@
-/home/andreasm/.conda/envs/env_andreasm/bin/python: No module named mpi4py
-srun: error: cs-g14c01b02: task 0: Exited with exit code 1
-srun: Terminating job step 26173774.0
-srun: error: cs-g14c01b05: task 1: Terminated
-srun: error: cs-h14c02b09: task 2: Terminated
-srun: error: cs-h14c03b07: task 3: Terminated
-srun: Force Terminated job step 26173774.0

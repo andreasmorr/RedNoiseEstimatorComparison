@@ -3,7 +3,7 @@ import matplotlib.lines as mlines
 import seaborn as sns
 import numpy as np
 import pandas as pd
-from scipy import stats
+import scipy
 from scipy.optimize import curve_fit
 from datetime import datetime
 import time
@@ -12,8 +12,9 @@ import SampleGeneration
 import WindowEstimation
 plt.rcParams['text.usetex'] = True
 labels = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
-cols = ["darkblue", "darkred", "darkgoldenrod", "darkgreen"]
-markers = ["^", "v", ">", "<"]
+cols = ["darkblue", "darkred", "darkgoldenrod", "darkgreen","darkmagenta"]
+markers = ["^", "v", ">", "<","D"]
+methods = [EstimationMethods.calculate_var, EstimationMethods.calculate_acor1, EstimationMethods.lambda_acs, EstimationMethods.lambda_psd, EstimationMethods.phi_gls]
 
 def estimator_distributions(sample_size, n, oversampling, lambda_, theta_, kappa_, initial, relevant_lags):
     results = []
@@ -30,8 +31,7 @@ def estimator_distributions(sample_size, n, oversampling, lambda_, theta_, kappa
         sample = SampleGeneration.generate_path(n=n, lambda_=lambda_, theta_=theta_, kappa_=kappa_,
                                                 oversampling=oversampling)
         this_result = []
-        for method in [EstimationMethods.calculate_var, EstimationMethods.calculate_acor1, EstimationMethods.lambda_acs,
-                       EstimationMethods.lambda_psd]:
+        for method in methods:
             this_result.append(method(sample, initial=initial, relevant_lags=relevant_lags))
         results.append(this_result)
     return np.transpose(np.array(results))
@@ -39,10 +39,10 @@ def estimator_distributions(sample_size, n, oversampling, lambda_, theta_, kappa
 
 def plot_estimator_distributions(results, sample_size, lambda_, theta_, kappa_, label_offset=0):
     plt.rcParams.update({'font.size': 20})
-    fig, axs = plt.subplots(nrows=1, ncols=4, figsize=(16, 6))
+    fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(16, 6))
     fig.tight_layout(pad=2.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
-    for method in range(4):
+    for method in range(5):
         if method == 0:
             truev = kappa_ ** 2 / (2 * lambda_ * theta_ * (lambda_ + theta_))
             xlabel = "Variance estimator"
@@ -52,9 +52,12 @@ def plot_estimator_distributions(results, sample_size, lambda_, theta_, kappa_, 
         elif method == 2:
             truev = lambda_
             xlabel = "$\lambda$ estimation via ACS"
-        else:
+        elif method == 3:
             truev = lambda_
             xlabel = "$\lambda$ estimation via PSD"
+        else:
+            truev = np.exp(-lambda_)
+            xlabel = r"$\varphi$ estimator"
         data = results[method]
         p, x = np.histogram(data, bins="auto")
         x = x[:-1] + (x[1] - x[0]) / 2
@@ -85,15 +88,17 @@ def get_sigma_intervals(results_against_n, lambda_, theta_, kappa_):
     sigmas_against_n = []
     for k in range(len(results_against_n)):
         sigmas = []
-        for method in range(4):
+        for method in range(5):
             if method == 0:
                 truev = kappa_ ** 2 / (2 * lambda_ * theta_ * (lambda_ + theta_))
             elif method == 1:
                 truev = (lambda_ * np.exp(-theta_) - theta_ * np.exp(-lambda_)) / (lambda_ - theta_)
             elif method == 2:
                 truev = lambda_
-            else:
+            elif method == 3:
                 truev = lambda_
+            else:
+                truev = np.exp(-lambda_)
             data = results_against_n[k][method]
             p, x = np.histogram(data, bins="auto")
             x = x[:-1] + (x[1] - x[0]) / 2
@@ -116,35 +121,33 @@ def oneoversqrt(n,a):
     return a/n**0.5
 
 def plot_interval_convergence(ns, sigmas_against_n, label_offset=0):
+    omit_beginning = 0
     plt.rcParams.update({'font.size': 20})
-    fig, axs = plt.subplots(nrows=1, ncols=4, figsize=(16, 6))
+    fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(16, 6))
     fig.tight_layout(pad=2.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
-    for method in range(4):
+    for method in range(5):
         sigmas = sigmas_against_n[method]
-        popt,pcov = curve_fit(oneoversqrt,ns,sigmas)
+        popt,pcov = curve_fit(oneoversqrt,ns[omit_beginning:],sigmas[omit_beginning:])
         print(popt)
-        for method in range(4):
-            if method == 0:
-                truev = kappa_ ** 2 / (2 * lambda_ * theta_ * (lambda_ + theta_))
-                title = "Variance estimator"
-            elif method == 1:
-                truev = (lambda_ * np.exp(-theta_) - theta_ * np.exp(-lambda_)) / (lambda_ - theta_)
-                title = "AC(1) estimator"
-            elif method == 2:
-                truev = lambda_
-                title = "$\lambda$ estimation via ACS"
-            else:
-                truev = lambda_
-                title = "$\lambda$ estimation via PSD"
-        axs[method].plot(ns, sigmas, color="black")
-        axs[method].plot(ns, [oneoversqrt(n,popt[0]) for n in ns], color="red")
+        if method == 0:
+            title = "Variance estimator"
+        elif method == 1:
+            title = "AC(1) estimator"
+        elif method == 2:
+            title = "$\lambda$ estimation via ACS"
+        elif method == 3:
+            title = "$\lambda$ estimation via PSD"
+        else:
+            title = r"$\varphi$ estimator"
+        axs[method].plot(ns[omit_beginning:], sigmas[omit_beginning:], color="black")
+        axs[method].plot(ns[omit_beginning:], [oneoversqrt(n,popt[0]) for n in ns][omit_beginning:], color="red")
         axs[method].set_xlabel("Window size $N$")
         axs[method].set_title(title, fontsize=20)
         if method == 0:
             axs[method].set_ylabel("$1\sigma$-interval size")
-        axs[method].legend(["1$\sigma$-interval width","$a/\sqrt{N}$ fit, $a=$" + str(round(popt[0],2))])
-        axs[method].text(-0.25, 0.95, labels[method + label_offset], transform=axs[method].transAxes, fontsize=23,
+        axs[method].legend(["1$\sigma$-interval width","$a/\sqrt{N}$ fit, $a=$" + str(round(popt[0],2))], fontsize=15)
+        axs[method].text(-0.3, 1, labels[method + label_offset], transform=axs[method].transAxes, fontsize=23,
                          verticalalignment='top', bbox=props)
     plt.savefig("Plots/convergence" + time.strftime("%Y%m%d-%H%M%S"), dpi=300, bbox_inches='tight')
     plt.show()
@@ -171,8 +174,8 @@ def comparison_taus(n, windowsize, leap, oversampling, scenario_size, observatio
     theta_max = 4
     kappa_min = 0.5
     kappa_max = 4
-    taus_pos = [[], [], [], []]
-    taus_neg = [[], [], [], []]
+    taus_pos = [[], [], [], [], []]
+    taus_neg = [[], [], [], [], []]
     start = datetime.now()
     for j in range(scenario_size):
         if j == 0:
@@ -193,34 +196,19 @@ def comparison_taus(n, windowsize, leap, oversampling, scenario_size, observatio
                                                     oversampling=oversampling)
         sample_neg = SampleGeneration.generate_path(short_n, lambda_scale * short_lambda_neg, theta_, kappa_,
                                                     oversampling=oversampling)
-        for method_number in range(4):
-            methods = [EstimationMethods.calculate_var, EstimationMethods.calculate_acor1, EstimationMethods.lambda_acs,
-                       EstimationMethods.lambda_psd]
+        for method_number in range(5):
             method = methods[method_number]
             results_pos = WindowEstimation.moving_window(timeseries=sample_pos, method=method, windowsize=windowsize,
                                                          leap=leap, initial=[1,1,1], relevant_lags=3)
             results_neg = WindowEstimation.moving_window(timeseries=sample_neg, method=method, windowsize=windowsize,
                                                          leap=leap, initial=[1, 1, 1], relevant_lags=3)
             if method_number == 2 or method_number == 3:
-                results_pos = -1*results_pos
+                results_pos = -1 * results_pos
                 results_neg = -1 * results_neg
-            taus_pos[method_number].append(stats.kendalltau(range(len(results_pos)),
+            taus_pos[method_number].append(scipy.stats.kendalltau(range(len(results_pos)),
                                                                   results_pos)[0])
-            taus_neg[method_number].append(stats.kendalltau(range(len(results_neg)),
+            taus_neg[method_number].append(scipy.stats.kendalltau(range(len(results_neg)),
                                                                   results_neg)[0])
-    if 0:
-        for method_number in range(4):
-
-            p, x = np.histogram(taus_pos[method_number], bins="auto")
-            plt.plot(x[:-1],p)
-            plt.xlabel(r"Kendall's $\tau$")
-            plt.ylabel("Probability density")
-            plt.show()
-            p, x = np.histogram(taus_neg[method_number], bins="auto")
-            plt.plot(x[:-1], p)
-            plt.xlabel(r"Kendall's $\tau$")
-            plt.ylabel("Probability density")
-            plt.show()
     return [taus_pos,taus_neg]
 
 
@@ -251,10 +239,10 @@ def plot_roc_curves_from_cluster_taus(taus_df):
             plt.title("Assessment of Indicator trends after " + str(round(observation_length * 100)) + "\% of CSD")
             plt.xlabel("False Positive Rate [\%]")
             plt.ylabel("True Positive Rate [\%]")
-            for method_number in range(4):
+            for method_number in range(5):
                 roc_curves.append(roc_curve(taus_pos[method_number], taus_neg[method_number], probe_count))
                 plt.plot(roc_curves[method_number][1], roc_curves[method_number][0], c=cols[method_number])
-            for method_number in range(4):
+            for method_number in range(5):
                 plt.scatter(roc_curves[method_number][1][round(len(roc_curves[method_number][1])/2)],
                             roc_curves[method_number][0][round(len(roc_curves[method_number][1])/2)],c=cols[method_number],
                             marker="*", s=40)
@@ -302,38 +290,13 @@ def plot_heat_auc(auc_dfs):
         ax.collections[0].colorbar.set_label("AUC")
         #plt.savefig("Plots_Cluster/heat_" + save_names[method] + "_" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
         plt.show()
-        
-    
-
-def plot_roc_curves_from_taus(taus, observation_length):
-    taus_pos = taus[0]
-    taus_neg = taus[1]
-    probe_count = 200
-    roc_curves = []
-    plt.rcParams["figure.figsize"] = (8, 8)
-    plt.title("Assessment of Indicator trends after " + str(round(observation_length * 100)) + "\% of CSD")
-    plt.xlabel("False Positive Rate [\%]")
-    plt.ylabel("True Positive Rate [\%]")
-    for method_number in range(4):
-        roc_curves.append(roc_curve(taus_pos[method_number], taus_neg[method_number], probe_count))
-        plt.plot(roc_curves[method_number][1], roc_curves[method_number][0], c=cols[method_number])
-    for method_number in range(4):
-        plt.scatter(roc_curves[method_number][1][round(len(roc_curves[method_number][1])/2)],
-                    roc_curves[method_number][0][round(len(roc_curves[method_number][1])/2)],c=cols[method_number],
-                    marker="*", s=40)
-    plt.plot([0, 100], [0, 100], c="black", linestyle="dashed")
-    plt.xlim([-0.4, 100])
-    plt.ylim([0, 100.4])
-    plt.legend(["Variance " + str(round(roc_curves[0][2],2)), "AC(1) " + str(round(roc_curves[1][2],2)),
-                "ACS " + str(round(roc_curves[2][2],2)), "PSD " + str(round(roc_curves[3][2],2))], loc="lower right")
-    plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
-    plt.show()
 
 
-def plot_mult_roc_curves_from_taus(taus, observation_length, label_offset=0):
+
+def plot_mult_roc_curves_from_taus(taus, observation_length):
     number_of_figs = len(taus)
     plt.rcParams.update({'font.size': 15})
-    fig, axs = plt.subplots(nrows=1, ncols=number_of_figs)
+    fig, axs = plt.subplots(nrows=1, ncols=number_of_figs, figsize=(12,24))
     fig.tight_layout(pad=5.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for fig_number in range(number_of_figs):
@@ -347,27 +310,29 @@ def plot_mult_roc_curves_from_taus(taus, observation_length, label_offset=0):
         axs[fig_number].title.set_fontsize(14)
         axs[fig_number].set_xlabel("False Positive Rate [\%]")
         axs[fig_number].set_ylabel("True Positive Rate [\%]")
-        for method_number in range(4):
+        for method_number in range(5):
             roc_curves.append(roc_curve(taus_pos[method_number], taus_neg[method_number], probe_count))
+        for method_number in range(5):    
             axs[fig_number].plot(roc_curves[method_number][1], roc_curves[method_number][0],c=cols[method_number])
-        for method_number in range(4):
+        for method_number in range(5):
             axs[fig_number].scatter(roc_curves[method_number][1][round(len(roc_curves[method_number][1])/2)],
                                     roc_curves[method_number][0][round(len(roc_curves[method_number][1])/2)],
                                     c=cols[method_number], marker=markers[method_number], s=80)
         line_labels = ["Variance [" + str(round(roc_curves[0][2],2)) + "]", "AC(1) [" + str(round(roc_curves[1][2],2)) + "]",
-                    "ACS [" + str(round(roc_curves[2][2],2)) + "]", "PSD [" + str(round(roc_curves[3][2],2)) + "]"]
-        legend_lines = [mlines.Line2D([], [], label=line_labels[method], color=cols[method], marker=markers[method], markersize=8) for method in range(4)]
+                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[2][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[3][2],2)) + "]",
+                    r"$\varphi$ [" + str(round(roc_curves[4][2],2)) + "]"]
+        legend_lines = [mlines.Line2D([], [], label=line_labels[method], color=cols[method], marker=markers[method], markersize=8) for method in range(5)]
         axs[fig_number].plot([0, 100], [0, 100], c="black", linestyle="dashed")
-        axs[fig_number].set_xlim([-0.4, 100])
-        axs[fig_number].set_ylim([0, 100.4])
-        axs[fig_number].legend(handles=legend_lines, loc="lower right", fontsize=16)
-        axs[fig_number].text(-0.23, 0.97, labels[fig_number + label_offset], transform=axs[fig_number].transAxes,
+        axs[fig_number].set_xlim([-1, 101])
+        axs[fig_number].set_ylim([-1, 101])
+        axs[fig_number].legend(handles=legend_lines, loc="lower right", fontsize=15)
+        axs[fig_number].text(-0.23, 0.97, labels[fig_number], transform=axs[fig_number].transAxes,
                              fontsize=20, verticalalignment='top', bbox=props)
     #plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
 
 
-def plot_example(n, observation_length, windowsize, leap, lambda_scale, theta_start, theta_end, kappa_start, kappa_end):
+def plot_example_est(n, observation_length, windowsize, leap, lambda_scale, theta_start, theta_end, kappa_start, kappa_end):
     oversampling = 10
     theta_min = 0.5
     theta_max = 4
@@ -387,8 +352,8 @@ def plot_example(n, observation_length, windowsize, leap, lambda_scale, theta_st
     sample_neg = SampleGeneration.generate_path(short_n, lambda_scale * short_lambda_neg, theta_, kappa_,
                                                 oversampling=oversampling)
     plt.rcParams.update({'font.size': 17})
-    fig, [[scenA, scenB], [sampA, sampB]] = plt.subplots(nrows=2, ncols=2, figsize=(14, 8),
-                                                         gridspec_kw={'height_ratios': [3, 1]}, sharex=True)
+    fig, [[scenA, scenB], [sampA, sampB], [estA, estB]] = plt.subplots(nrows=3, ncols=2, figsize=(14, 10),
+                                                         gridspec_kw={'height_ratios': [3, 1, 1]}, sharex=True,tight_layout=True)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     scenA.plot(lambda_scale * lambda_pos, color="black", linewidth=2)
     scenA.plot(theta_, color="black", linestyle="dashdot", linewidth=2)
@@ -424,6 +389,7 @@ def plot_example(n, observation_length, windowsize, leap, lambda_scale, theta_st
     sampA.set_xlim([0, n])
     sampA.text(-0.14, 0.95, labels[2], transform=sampA.transAxes, fontsize=20,
                verticalalignment='top', bbox=props)
+    sampA.legend(["$X_t$"])
 
     sampB.plot(sample_neg, linewidth=0.5, color="black")
     sampB.axvline(len(theta_), color="lightgrey")
@@ -435,6 +401,30 @@ def plot_example(n, observation_length, windowsize, leap, lambda_scale, theta_st
     sampB.set_xlim([0, n])
     sampB.text(-0.14, 0.95, labels[3], transform=sampB.transAxes, fontsize=20,
                verticalalignment='top', bbox=props)
+    sampB.legend(["$X_t$"])
+    
+    estA.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_var(sample_pos[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=2, color="black",linestyle = "dashed")
+    estA.plot([0],[0], linewidth=2, color="black",linestyle = "dotted")
+    estA2 = estA.twinx()
+    estA2.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_acor1(sample_pos[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=2, color="black",linestyle = "dotted")
+    estA.axvline(len(theta_), color="lightgrey")
+    estA.set_xlim([0, n])
+    estA.text(-0.14, 0.95, labels[4], transform=estA.transAxes, fontsize=20,
+               verticalalignment='top', bbox=props)
+    estA.legend(["Var","AC(1)"],fontsize=12)
+    estA.set_xlabel("Time $t$")
 
-    plt.savefig("Plots/example" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    estB.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_var(sample_neg[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=2, color="black",linestyle = "dashed")
+    estB.plot([0],[0], linewidth=2, color="black",linestyle = "dotted")
+    estB2 = estB.twinx()
+    estB2.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_acor1(sample_neg[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=2, color="black",linestyle = "dotted")
+    estB.axvline(len(theta_), color="lightgrey")
+    estB.set_xlim([0, n])
+    estB.text(-0.14, 0.95, labels[5], transform=estB.transAxes, fontsize=20,
+               verticalalignment='top', bbox=props)
+    estB.legend(["Var","AC(1)"],fontsize=12)
+    estB.set_xlabel("Time $t$")
+
+    #plt.savefig("Plots/example" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
+

@@ -1,8 +1,0 @@
-/home/andreasm/.conda/envs/env_andreasm/bin/python: can't open file '/home/andreasm/RedNoiseEstimatorComparison/run_part.py': [Errno 2] No such file or directory
-srun: error: cs-g14c04b05: task 0: Exited with exit code 2
-srun: Terminating job step 26174002.0
-srun: error: cs-h14c03b07: task 3: Terminated
-srun: error: cs-g14c06b05: task 2: Terminated
-/home/andreasm/.conda/envs/env_andreasm/bin/python: can't open file '/home/andreasm/RedNoiseEstimatorComparison/run_part.py': [Errno 2] No such file or directory
-srun: error: cs-g14c06b03: task 1: Exited with exit code 2
-srun: Force Terminated job step 26174002.0

@@ -5,26 +5,18 @@ from datetime import datetime
 import EstimationMethods
 import SampleGeneration
 import WindowEstimation
+import MethodComparisons
 import sys
 import os
 
 
 number_of_windows = 20
-windowsizes = [100]
+windowsizes = [100,200,350,500,700,900,1100,1300,1500]
 observation_lengths = [0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
 oversampling = 10
 scenario_size = 1000
 
 
-
-def roc_curve(pos,neg,probe_count):
-    minv=-1
-    maxv=1
-    probes = [maxv*(1-i/probe_count)+minv*i/probe_count for i in range(probe_count+1)]
-    tpr = np.array([sum([pos[j]>probes[i] for j in range(len(pos))]) for i in range(probe_count+1)]+[len(pos)])*100/len(pos)
-    fpr = np.array([sum([neg[j]>probes[i] for j in range(len(neg))]) for i in range(probe_count+1)]+[len(neg)])*100/len(neg)
-    auc = sum([(tpr[i+1]+tpr[i])/2*(fpr[i+1]-fpr[i]) for i in range(len(tpr)-1)])/10000
-    return [tpr,fpr,[auc]]
 
 
 def comparison_taus(n, windowsize, leap, oversampling, scenario_size, observation_length):
@@ -83,8 +75,8 @@ def get_tpr_fpr_auc(i_,j_):
     observation_length=observation_lengths[j_]
     n = number_of_windows*windowsize
     leap = windowsize
-    taus = comparison_taus(n, windowsize, leap, oversampling, scenario_size, observation_length)
-    for method in range(4):
-        pd.DataFrame(roc_curve(np.array(taus[0][method]), np.array(taus[1][method]),probe_count=200),index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) 
+    taus = MethodComparisons.comparison_taus(n, windowsize, leap, oversampling, scenario_size, observation_length)
+    for method in range(5):
+        pd.DataFrame(MethodComparisons.roc_curve(np.array(taus[0][method]), np.array(taus[1][method]),probe_count=200),index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) 
                                                                                                                                          + "_" + str(j_) + ".csv")
    

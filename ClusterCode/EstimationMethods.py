@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
-from scipy import optimize
-from numpy import fft
+from scipy import fft, optimize
 import numpy as np
+import statsmodels.api as sm
+
+lse_negative_count = 0
 
 
 def detrend_quadratic(timeseries):
@@ -107,3 +109,35 @@ def lambda_acs(timeseries, return_all_params=False, **kwargs):
         return [np.min([np.abs(params[0]), np.abs(params[1])]), np.max([np.abs(params[0]), np.abs(params[1])])]
     else:
         return np.min([np.abs(params[0]), np.abs(params[1])])
+    
+
+def phi_gls(timeseries, return_all_params=False, **kwargs):
+    diff = timeseries[1:] - timeseries[:-1]
+    #timeseries = sm.add_constant(timeseries)
+    model = sm.GLSAR(diff, timeseries[:-1], rho=1)
+    result = model.iterative_fit(maxiter=100)
+    #print(result.summary())
+    if return_all_params:
+        return [result.params[0]+1, model.rho[0]]
+    else:
+        return result.params[0]+1
+    
+
+def phi_lse(timeseries, return_all_params=False, **kwargs):
+    global lse_negative_count
+    phi_b = calculate_acor1(timeseries)
+    V = timeseries[:-1] - phi_b*timeseries[1:]
+    rho_b = calculate_acor1(V)
+    a = phi_b + rho_b
+    b = rho_b/phi_b
+    if a**2-4*b>0:
+        phi_a = (a+np.sqrt(a**2-4*b))/2
+    else:
+        lse_negative_count+=1
+        #print(lse_negative_count)
+        return 0
+    rho_a = rho_b/(phi_a*phi_b)
+    if return_all_params:
+        return [phi_a, rho_a]
+    else:
+        return phi_a
