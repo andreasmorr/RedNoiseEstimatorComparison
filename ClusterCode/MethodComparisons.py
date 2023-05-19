@@ -10,6 +10,8 @@ import time
 import EstimationMethods
 import SampleGeneration
 import WindowEstimation
+import tpr_fpr_auc
+from matplotlib.patches import Rectangle
 plt.rcParams['text.usetex'] = True
 labels = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
 cols = ["darkblue", "darkred", "darkgoldenrod", "darkgreen","darkmagenta"]
@@ -39,7 +41,7 @@ def estimator_distributions(sample_size, n, oversampling, lambda_, theta_, kappa
 
 def plot_estimator_distributions(results, sample_size, lambda_, theta_, kappa_, label_offset=0):
     plt.rcParams.update({'font.size': 20})
-    fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(16, 6))
+    fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(20, 6))
     fig.tight_layout(pad=2.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for method in range(5):
@@ -123,10 +125,10 @@ def oneoversqrt(n,a):
 def plot_interval_convergence(ns, sigmas_against_n, label_offset=0):
     omit_beginning = 0
     plt.rcParams.update({'font.size': 20})
-    fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(16, 6))
+    fig, axs = plt.subplots(nrows=1, ncols=4, figsize=(16, 6))
     fig.tight_layout(pad=2.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
-    for method in range(5):
+    for method in range(4):
         sigmas = sigmas_against_n[method]
         popt,pcov = curve_fit(oneoversqrt,ns[omit_beginning:],sigmas[omit_beginning:])
         print(popt)
@@ -325,9 +327,10 @@ def plot_mult_roc_curves_from_taus(taus, observation_length):
         axs[fig_number].plot([0, 100], [0, 100], c="black", linestyle="dashed")
         axs[fig_number].set_xlim([-1, 101])
         axs[fig_number].set_ylim([-1, 101])
-        axs[fig_number].legend(handles=legend_lines, loc="lower right", fontsize=15)
+        axs[fig_number].legend(handles=legend_lines, loc="lower right", fontsize=15, framealpha=1)
         axs[fig_number].text(-0.23, 0.97, labels[fig_number], transform=axs[fig_number].transAxes,
                              fontsize=20, verticalalignment='top', bbox=props)
+        axs[fig_number].grid()
     #plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
 
@@ -426,5 +429,115 @@ def plot_example_est(n, observation_length, windowsize, leap, lambda_scale, thet
     estB.set_xlabel("Time $t$")
 
     #plt.savefig("Plots/example" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    plt.show()
+
+
+def plot_slices(window_index,obslen_index):
+    number_of_windows = tpr_fpr_auc.number_of_windows
+    windowsizes = tpr_fpr_auc.windowsizes
+    observation_lengths = tpr_fpr_auc.observation_lengths
+
+    #number_of_windows = 20
+    #windowsizes = [200,350,500,700,900,1100,1300,1500]
+    #observation_lengths = [0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    
+    fig, axs = plt.subplots(nrows=1, ncols=2, figsize=(10,4),sharey=True)
+    #fig.tight_layout(pad=5.0)
+    props = dict(edgecolor="none", facecolor='white', alpha=0)
+    
+    dfs = []
+    for method in range(5):
+        aucs = []
+        for i in range(len(windowsizes)):
+            aucs.append([])
+            for j in range(len(observation_lengths)):
+                df = pd.read_csv("tpr_fpr_auc/" + str(method) + "_" + str(i) + "_" + str(j) + ".csv", index_col=0)
+                aucs[i].append(df.loc["auc"].iloc[0])
+        auc_df = pd.DataFrame(aucs, index=windowsizes, columns=observation_lengths)
+        auc_df.columns = np.round(100*auc_df.columns,0).astype(int)
+        auc_df.index = number_of_windows * auc_df.index
+        dfs.append(auc_df)
+        #auc_df = auc_df.iloc[::-1]
+    
+    axs[0].set_title("AUC values for length " + str(windowsizes[window_index]*number_of_windows) + " time series")
+    axs[0].title.set_fontsize(14)
+    axs[0].set_xlabel("Fraction of the time series used in estimations [$\%$]",fontsize=12)
+    axs[0].set_ylabel("AUC",fontsize=12)
+    for method in range(4):
+        axs[0].plot(np.round(dfs[method].columns,0).astype(int),dfs[method].iloc[window_index,:],c=cols[method])
+    axs[0].legend(["Variance", "AC(1)", "$\lambda^{\mathrm{(ACS)}}$", "$\lambda^{\mathrm{(PSD)}}$",r"$\varphi$"],loc="upper left",fontsize=14, framealpha=1)
+    axs[0].text(-0.17, 0.97, labels[0], transform=axs[0].transAxes,
+                            fontsize=20, verticalalignment='top', bbox=props)
+    axs[0].tick_params(axis="x",labelsize=14)
+    axs[0].tick_params(axis="y",labelsize=14)
+    axs[0].grid()
+
+    axs[1].set_title("AUC values for fraction of " + str(round(observation_lengths[obslen_index]*100)) + "$\%$ used")
+    axs[1].title.set_fontsize(14)
+    axs[1].set_xlabel("Length of the time series",fontsize=12)
+    for method in range(5):
+        axs[1].plot(np.round(dfs[method].index,0).astype(int),dfs[method].iloc[:,obslen_index],c=cols[method])
+    axs[1].legend(["Variance", "AC(1)", "ACS", "PSD"],loc="upper left",fontsize=14, framealpha=1)
+    axs[1].text(-0.17, 0.97, labels[1], transform=axs[1].transAxes,
+                            fontsize=20, verticalalignment='top', bbox=props)
+    axs[1].tick_params(axis="x",labelsize=14)
+    axs[1].tick_params(axis="y",labelsize=14)
+    axs[1].grid()
+    #plt.savefig("Plots/slices" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    plt.show()
+
+
+
+
+def plot_heat_auc(examples = True, slices = True):
+    number_of_windows = tpr_fpr_auc.number_of_windows
+    windowsizes = tpr_fpr_auc.windowsizes
+    observation_lengths = tpr_fpr_auc.observation_lengths
+
+    #number_of_windows = 20
+    #windowsizes = [200,350,500,700,900,1100,1300,1500]
+    #observation_lengths = [0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    method_names = ["Variance estimator", "AC(1) estimator", "$\lambda$ via ACS", "$\lambda$ via PSD", r"$\varphi$ estimator"]
+    
+    #plt.rcParams.update({'font.size': 20})
+    fig, axs = plt.subplots(nrows=1, ncols=6, gridspec_kw={"width_ratios":[1,1,1,1,0.1]}, figsize=(27,5))
+    #fig.tight_layout(pad=2.0)
+    props = dict(edgecolor="none", facecolor='white', alpha=0)
+    for method in range(5):
+        aucs = []
+        for i in range(len(windowsizes)):
+            aucs.append([])
+            for j in range(len(observation_lengths)):
+                df = pd.read_csv("tpr_fpr_auc/" + str(method) + "_" + str(i) + "_" + str(j) + ".csv", index_col=0)
+                aucs[i].append(df.loc["auc"].iloc[0])
+        auc_df = pd.DataFrame(aucs, index=windowsizes, columns=observation_lengths)
+        auc_df.columns = np.round(100*auc_df.columns,0).astype(int)
+        auc_df.index = number_of_windows * auc_df.index
+        auc_df = auc_df.iloc[::-1]
+        if method==0:
+            sns.heatmap(auc_df, ax=axs[method], yticklabels=True, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
+        else:
+            sns.heatmap(auc_df, ax=axs[method], yticklabels=False, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
+        if examples:
+            axs[method].add_patch(Rectangle((7,5),1,1,fill=False,edgecolor="red", lw=2))
+            axs[method].add_patch(Rectangle((2,5),1,1,fill=False,edgecolor="pink", lw=2))
+        if slices: 
+            axs[method].add_patch(Rectangle((0,7),9,1,fill=False,edgecolor="black", lw=2, linestyle="dashed"))
+            axs[method].add_patch(Rectangle((1,0),1,9,fill=False,edgecolor="black", lw=2, linestyle="dotted"))
+        axs[method].set_title(method_names[method],fontsize=20)
+        axs[method].set_xlim([-0.1,9.1])
+        axs[method].set_ylim([9.1,-0.1])
+        axs[method].set_aspect("equal", adjustable='box')
+        axs[method].text(-0.1, 1.1, labels[method], transform=axs[method].transAxes, fontsize=23,
+                         verticalalignment='top', bbox=props)
+        axs[method].tick_params(axis="x",labelsize=20)
+        axs[method].tick_params(axis="y",labelsize=16)
+    fig.text(0.5,0.02, "Fraction of the time series used in estimations [\%]", ha="center", va="center",fontsize=20)
+    fig.colorbar(axs[4].collections[0], cax=axs[5])
+    axs[0].set_ylabel("Length of the time series",fontsize=20) 
+    axs[0].set_yticklabels(axs[0].get_yticklabels(), rotation = 0)
+    axs[4].collections[0].colorbar.set_label("AUC",fontsize=20)
+    axs[4].collections[0].colorbar.ax.tick_params(labelsize=20)
+    #plt.savefig("Plots/heat_" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
 
