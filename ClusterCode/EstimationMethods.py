@@ -13,7 +13,8 @@ def detrend_quadratic(timeseries):
 
 
 def power_spectrum(timeseries):
-    fouriertransform = fft.rfft(timeseries)[1:round(len(timeseries) / 2)]
+    #fouriertransform = fft.rfft(timeseries)[1:round(len(timeseries) / 2)]
+    fouriertransform = np.fft.rfft(timeseries)[1:round(len(timeseries) / 2)]
     return abs(fouriertransform) ** 2 / len(timeseries)
 
 
@@ -47,7 +48,7 @@ def error_psd(params, n, observed_psd):
         theta_ = 10 * np.sign(theta_)
     elambda_ = np.exp(lambda_)
     etheta_ = np.exp(theta_)
-    cos_array = [np.cos(2*np.pi*f) for f in fft.fftfreq(n)[1:round(n/2)]]
+    cos_array = [np.cos(2*np.pi*f) for f in np.fft.fftfreq(n)[1:round(n/2)]]
     if abs(abs(lambda_) - abs(theta_)) < 0.05:
         theoretical_psd = np.array([kappa_ ** 2 / (4 * lambda_**3) * (-lambda_-cos_array[i]*np.sinh(lambda_) +
                                                                 np.cosh(lambda_) * (lambda_*cos_array[i] +
