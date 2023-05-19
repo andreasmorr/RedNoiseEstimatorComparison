@@ -10,7 +10,7 @@ import time
 import EstimationMethods
 import SampleGeneration
 import WindowEstimation
-#import tpr_fpr_auc
+import tpr_fpr_auc
 from matplotlib.patches import Rectangle
 plt.rcParams['text.usetex'] = True
 labels = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
