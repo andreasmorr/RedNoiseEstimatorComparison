@@ -1,0 +1,43 @@
+srun: Warning: can't honor --ntasks-per-node set to 6 which doesn't match the requested tasks 81 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/statsmodels/compat/pandas.py:56: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
+  from pandas.core import datetools
+Traceback (most recent call last):
+  File "run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 80, in get_tpr_fpr_auc
+    pd.DataFrame(MethodComparisons.roc_curve(np.array(taus[0][method]), np.array(taus[1][method]),probe_count=200),index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) 
+  File "/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/pandas/core/frame.py", line 369, in __init__
+    arrays, columns = _to_arrays(data, columns, dtype=dtype)
+  File "/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/pandas/core/frame.py", line 6271, in _to_arrays
+    data = lmap(tuple, data)
+  File "/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/pandas/compat/__init__.py", line 129, in lmap
+    return list(map(*args, **kwargs))
+TypeError: 'numpy.float64' object is not iterable
+/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/statsmodels/compat/pandas.py:56: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
+  from pandas.core import datetools
+Traceback (most recent call last):
+  File "run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 80, in get_tpr_fpr_auc
+    pd.DataFrame(MethodComparisons.roc_curve(np.array(taus[0][method]), np.array(taus[1][method]),probe_count=200),index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) 
+  File "/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/pandas/core/frame.py", line 369, in __init__
+    arrays, columns = _to_arrays(data, columns, dtype=dtype)
+  File "/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/pandas/core/frame.py", line 6271, in _to_arrays
+    data = lmap(tuple, data)
+  File "/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/pandas/compat/__init__.py", line 129, in lmap
+    return list(map(*args, **kwargs))
+TypeError: 'numpy.float64' object is not iterable
+/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/statsmodels/compat/pandas.py:56: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
+  from pandas.core import datetools
+Traceback (most recent call last):
+  File "run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 80, in get_tpr_fpr_auc
+    pd.DataFrame(MethodComparisons.roc_curve(np.array(taus[0][method]), np.array(taus[1][method]),probe_count=200),index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) 
+  File "/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/pandas/core/frame.py", line 369, in __init__
+    arrays, columns = _to_arrays(data, columns, dtype=dtype)
+  File "/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/pandas/core/frame.py", line 6271, in _to_arrays
+    data = lmap(tuple, data)
+  File "/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/pandas/compat/__init__.py", line 129, in lmap
+    return list(map(*args, **kwargs))
+TypeError: 'numpy.float64' object is not iterable
