@@ -1,0 +1,21 @@
+srun: Warning: can't run 1 processes on 16 nodes, setting nnodes to 1
+/p/system/packages/anaconda/5.0.0_py3/lib/python3.6/site-packages/statsmodels/compat/pandas.py:56: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
+  from pandas.core import datetools
+Traceback (most recent call last):
+  File "run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 78, in get_tpr_fpr_auc
+    taus = MethodComparisons.comparison_taus(n, windowsize, leap, oversampling, scenario_size, observation_length)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/MethodComparisons.py", line 204, in comparison_taus
+    leap=leap, initial=[1,1,1], relevant_lags=3)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/WindowEstimation.py", line 21, in moving_window
+    for i in range(round(windowsize / 2), len(timeseries) - round(windowsize / 2)+1, leap)])
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/WindowEstimation.py", line 21, in <listcomp>
+    for i in range(round(windowsize / 2), len(timeseries) - round(windowsize / 2)+1, leap)])
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py", line 75, in lambda_psd
+    observed_psd = np.log(frequency_mean(power_spectrum(timeseries)))
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py", line 16, in power_spectrum
+    fouriertransform = fft.rfft(timeseries)[1:round(len(timeseries) / 2)]
+AttributeError: 'function' object has no attribute 'rfft'
+srun: error: cs-g14c01b05: task 0: Exited with exit code 1
+srun: Terminating job step 26673455.0
