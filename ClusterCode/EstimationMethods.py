@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from scipy import fft, optimize
+from scipy import optimize
 import numpy as np
 import statsmodels.api as sm
 
@@ -13,7 +13,6 @@ def detrend_quadratic(timeseries):
 
 
 def power_spectrum(timeseries):
-    #fouriertransform = fft.rfft(timeseries)[1:round(len(timeseries) / 2)]
     fouriertransform = np.fft.rfft(timeseries)[1:round(len(timeseries) / 2)]
     return abs(fouriertransform) ** 2 / len(timeseries)
 
