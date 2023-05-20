@@ -4,7 +4,7 @@ import numpy as np
 rightwindow = False
 
 
-def moving_window(timeseries, method, windowsize, leap, **args):
+def moving_window(timeseries, method, windowsize, leap=1, **args):
     if method == "var":
         method = EstimationMethods.calculate_var
     elif method == "ac1":
@@ -22,7 +22,7 @@ def moving_window(timeseries, method, windowsize, leap, **args):
     return result
 
 
-def moving_window_filled(timeseries, method, windowsize, leap, **args):
+def moving_window_filled(timeseries, method, windowsize, leap=1, **args):
     if method == "var":
         method = EstimationMethods.calculate_var
     elif method == "ac1":

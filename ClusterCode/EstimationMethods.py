@@ -71,10 +71,11 @@ def error_psd(params, n, observed_psd):
     return sum(abs(observed_psd - theoretical_psd) ** 2)
 
 
-def lambda_psd(timeseries, return_all_params=False, **kwargs):
+def lambda_psd(timeseries, **kwargs):
+
     observed_psd = np.log(frequency_mean(power_spectrum(timeseries)))
     params = optimize.fmin(error_psd, kwargs["initial"], args=(len(timeseries), observed_psd), disp=False)
-    if return_all_params:
+    if "return_all_params" in kwargs and kwargs.get("return_all_params"):
         return [np.min([np.abs(params[0]), np.abs(params[1])]), np.max([np.abs(params[0]), np.abs(params[1])]),
                 np.abs(params[2])]
     else:
@@ -102,28 +103,28 @@ def error_acs(params, observed_ac):
     return sum(abs(observed_ac - theoretical_ac) ** 2)
 
 
-def lambda_acs(timeseries, return_all_params=False, **kwargs):
+def lambda_acs(timeseries, **kwargs):
     observed_ac = acor_struc(timeseries, kwargs["relevant_lags"])
     params = optimize.fmin(error_acs, kwargs["initial"], args=(observed_ac,), disp=False)
-    if return_all_params:
+    if "return_all_params" in kwargs and kwargs.get("return_all_params"):
         return [np.min([np.abs(params[0]), np.abs(params[1])]), np.max([np.abs(params[0]), np.abs(params[1])])]
     else:
         return np.min([np.abs(params[0]), np.abs(params[1])])
     
 
-def phi_gls(timeseries, return_all_params=False, **kwargs):
+def phi_gls(timeseries, **kwargs):
     diff = timeseries[1:] - timeseries[:-1]
     #timeseries = sm.add_constant(timeseries)
     model = sm.GLSAR(diff, timeseries[:-1], rho=1)
     result = model.iterative_fit(maxiter=100)
     #print(result.summary())
-    if return_all_params:
+    if "return_all_params" in kwargs and kwargs.get("return_all_params"):
         return [result.params[0]+1, model.rho[0]]
     else:
         return result.params[0]+1
     
 
-def phi_lse(timeseries, return_all_params=False, **kwargs):
+def phi_lse(timeseries, **kwargs):
     global lse_negative_count
     phi_b = calculate_acor1(timeseries)
     V = timeseries[:-1] - phi_b*timeseries[1:]
@@ -137,7 +138,7 @@ def phi_lse(timeseries, return_all_params=False, **kwargs):
         #print(lse_negative_count)
         return 0
     rho_a = rho_b/(phi_a*phi_b)
-    if return_all_params:
+    if "return_all_params" in kwargs and kwargs.get("return_all_params"):
         return [phi_a, rho_a]
     else:
         return phi_a

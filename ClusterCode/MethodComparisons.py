@@ -331,7 +331,7 @@ def plot_mult_roc_curves_from_taus(taus, observation_length):
         axs[fig_number].text(-0.23, 0.97, labels[fig_number], transform=axs[fig_number].transAxes,
                              fontsize=20, verticalalignment='top', bbox=props)
         axs[fig_number].grid()
-    #plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
 
 

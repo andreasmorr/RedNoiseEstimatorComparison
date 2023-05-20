@@ -1,4 +1,0 @@
-srun: Warning: can't run 1 processes on 16 nodes, setting nnodes to 1
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** STEP 26673500.0 ON cs-g14c01b05 CANCELLED AT 2023-05-19T11:07:01 ***
-slurmstepd: error: *** JOB 26673500 ON cs-g14c01b05 CANCELLED AT 2023-05-19T11:07:01 ***
