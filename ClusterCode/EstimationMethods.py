@@ -38,17 +38,15 @@ def frequency_mean(timeseries, band_size=10):
 
 
 def error_psd(params, n, observed_psd):
-    lambda_ = params[0]
-    theta_ = params[1]
-    kappa_ = params[2]
-    if abs(lambda_) > 10:
-        lambda_ = 10 * np.sign(lambda_)
-    if abs(theta_) > 10:
-        theta_ = 10 * np.sign(theta_)
+    lambda_ = abs(params[0])
+    theta_ = abs(params[1])
+    kappa_ = abs(params[2])
+    lambda_ = min(lambda_,5)
+    theta_ = min(theta_,5)
     elambda_ = np.exp(lambda_)
     etheta_ = np.exp(theta_)
     cos_array = [np.cos(2*np.pi*f) for f in np.fft.fftfreq(n)[1:round(n/2)]]
-    if abs(abs(lambda_) - abs(theta_)) < 0.05:
+    if abs(lambda_ - theta_) < 0.01:
         theoretical_psd = np.array([kappa_ ** 2 / (4 * lambda_**3) * (-lambda_-cos_array[i]*np.sinh(lambda_) +
                                                                 np.cosh(lambda_) * (lambda_*cos_array[i] +
                                                                                       np.sinh(lambda_)))
@@ -72,14 +70,13 @@ def error_psd(params, n, observed_psd):
 
 
 def lambda_psd(timeseries, **kwargs):
-
     observed_psd = np.log(frequency_mean(power_spectrum(timeseries)))
     params = optimize.fmin(error_psd, kwargs["initial"], args=(len(timeseries), observed_psd), disp=False)
     if "return_all_params" in kwargs and kwargs.get("return_all_params"):
-        return [np.min([np.abs(params[0]), np.abs(params[1])]), np.max([np.abs(params[0]), np.abs(params[1])]),
-                np.abs(params[2])]
+        return [min([abs(params[0]), abs(params[1])]), max([abs(params[0]), abs(params[1])]),
+                abs(params[2])]
     else:
-        return np.min([np.abs(params[0]), np.abs(params[1])])
+        return min([abs(params[0]), abs(params[1])])
 
 
 def acor_struc(timeseries, relevant_lags=1):
@@ -88,9 +85,11 @@ def acor_struc(timeseries, relevant_lags=1):
 
 
 def error_acs(params, observed_ac):
-    lambda_ = params[0]
-    theta_ = params[1]
-    if abs(abs(lambda_) - abs(theta_)) < 0.05:
+    lambda_ = abs(params[0])
+    theta_ = abs(params[1])
+    lambda_ = min(lambda_,5)
+    theta_ = min(theta_,5)
+    if abs(lambda_ - theta_) < 0.01:
         theoretical_ac = np.array([np.exp(-lambda_ * x) * (1 + lambda_ * x) for x in range(len(observed_ac))])
     else:
         theoretical_ac = np.array([(theta_ * np.exp(-lambda_ * x) - lambda_ * np.exp(-theta_ * x)) / (theta_ - lambda_)
@@ -107,9 +106,9 @@ def lambda_acs(timeseries, **kwargs):
     observed_ac = acor_struc(timeseries, kwargs["relevant_lags"])
     params = optimize.fmin(error_acs, kwargs["initial"], args=(observed_ac,), disp=False)
     if "return_all_params" in kwargs and kwargs.get("return_all_params"):
-        return [np.min([np.abs(params[0]), np.abs(params[1])]), np.max([np.abs(params[0]), np.abs(params[1])])]
+        return [min([abs(params[0]), abs(params[1])]), max([abs(params[0]), abs(params[1])])]
     else:
-        return np.min([np.abs(params[0]), np.abs(params[1])])
+        return min([np.abs(params[0]), abs(params[1])])
     
 
 def phi_gls(timeseries, **kwargs):

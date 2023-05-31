@@ -15,8 +15,8 @@ from matplotlib.patches import Rectangle
 plt.rcParams['text.usetex'] = True
 labels = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
 cols = ["darkblue", "darkred", "darkgoldenrod", "darkgreen","darkmagenta"]
-markers = ["^", "v", ">", "<","D"]
-methods = [EstimationMethods.calculate_var, EstimationMethods.calculate_acor1, EstimationMethods.lambda_acs, EstimationMethods.lambda_psd, EstimationMethods.phi_gls]
+markers = ["^", "s", "p", "h","o"]
+methods = [EstimationMethods.calculate_var, EstimationMethods.calculate_acor1, EstimationMethods.phi_gls, EstimationMethods.lambda_acs, EstimationMethods.lambda_psd]
 
 def estimator_distributions(sample_size, n, oversampling, lambda_, theta_, kappa_, initial, relevant_lags):
     results = []
@@ -40,8 +40,9 @@ def estimator_distributions(sample_size, n, oversampling, lambda_, theta_, kappa
 
 
 def plot_estimator_distributions(results, sample_size, lambda_, theta_, kappa_, label_offset=0):
-    plt.rcParams.update({'font.size': 20})
-    fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(20, 6))
+    plt.rcParams.update({'font.size': 25})
+    fig, axs = plt.subplots(nrows=2, ncols=3, figsize=(20, 12))
+    axs = axs.flatten()
     fig.tight_layout(pad=2.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for method in range(5):
@@ -52,14 +53,14 @@ def plot_estimator_distributions(results, sample_size, lambda_, theta_, kappa_, 
             truev = (lambda_ * np.exp(-theta_) - theta_ * np.exp(-lambda_)) / (lambda_ - theta_)
             xlabel = "AC(1) estimator"
         elif method == 2:
-            truev = lambda_
-            xlabel = "$\lambda$ estimation via ACS"
-        elif method == 3:
-            truev = lambda_
-            xlabel = "$\lambda$ estimation via PSD"
-        else:
             truev = np.exp(-lambda_)
             xlabel = r"$\varphi$ estimator"
+        elif method == 3:
+            truev = lambda_
+            xlabel = "$\lambda$ estimation via ACS"
+        else:
+            truev = lambda_
+            xlabel = "$\lambda$ estimation via PSD"
         data = results[method]
         p, x = np.histogram(data, bins="auto")
         x = x[:-1] + (x[1] - x[0]) / 2
@@ -75,14 +76,15 @@ def plot_estimator_distributions(results, sample_size, lambda_, theta_, kappa_, 
         sigma = i*(x[1] - x[0])
         axs[method].plot(x, p/(sample_size*(x[1] - x[0])), color="black")
         axs[method].set_xlabel(xlabel)
-        if method == 0:
+        if method == 0 or method == 3:
             axs[method].set_ylabel("Probability density")
         axs[method].axvline(truev, color="red", linestyle="dashed")
         axs[method].axvline(truev + sigma, color="purple", linestyle="dotted", linewidth = 2)
         axs[method].axvline(truev - sigma, color="purple", linestyle="dotted", linewidth = 2)
-        axs[method].text(-0.25, 0.95, labels[method + label_offset], transform=axs[method].transAxes, fontsize=23,
+        axs[method].text(-0.15, 0.95, labels[method + label_offset], transform=axs[method].transAxes, fontsize=28,
                          verticalalignment='top', bbox=props)
-    plt.savefig("Plots/distributions" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    axs[5].axis('off')
+    #plt.savefig("Plots/distributions" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
 
 
@@ -96,11 +98,11 @@ def get_sigma_intervals(results_against_n, lambda_, theta_, kappa_):
             elif method == 1:
                 truev = (lambda_ * np.exp(-theta_) - theta_ * np.exp(-lambda_)) / (lambda_ - theta_)
             elif method == 2:
-                truev = lambda_
+                truev = np.exp(-lambda_)
             elif method == 3:
                 truev = lambda_
             else:
-                truev = np.exp(-lambda_)
+                truev = lambda_
             data = results_against_n[k][method]
             p, x = np.histogram(data, bins="auto")
             x = x[:-1] + (x[1] - x[0]) / 2
@@ -125,7 +127,8 @@ def oneoversqrt(n,a):
 def plot_interval_convergence(ns, sigmas_against_n, label_offset=0):
     omit_beginning = 0
     plt.rcParams.update({'font.size': 20})
-    fig, axs = plt.subplots(nrows=1, ncols=4, figsize=(16, 6))
+    fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(12, 12))
+    axs = axs.flatten()
     fig.tight_layout(pad=2.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for method in range(4):
@@ -138,15 +141,13 @@ def plot_interval_convergence(ns, sigmas_against_n, label_offset=0):
             title = "AC(1) estimator"
         elif method == 2:
             title = "$\lambda$ estimation via ACS"
-        elif method == 3:
-            title = "$\lambda$ estimation via PSD"
         else:
-            title = r"$\varphi$ estimator"
+            title = "$\lambda$ estimation via PSD"
         axs[method].plot(ns[omit_beginning:], sigmas[omit_beginning:], color="black")
         axs[method].plot(ns[omit_beginning:], [oneoversqrt(n,popt[0]) for n in ns][omit_beginning:], color="red")
         axs[method].set_xlabel("Window size $N$")
         axs[method].set_title(title, fontsize=20)
-        if method == 0:
+        if method == 0 or method == 2:
             axs[method].set_ylabel("$1\sigma$-interval size")
         axs[method].legend(["1$\sigma$-interval width","$a/\sqrt{N}$ fit, $a=$" + str(round(popt[0],2))], fontsize=15)
         axs[method].text(-0.3, 1, labels[method + label_offset], transform=axs[method].transAxes, fontsize=23,
@@ -204,7 +205,7 @@ def comparison_taus(n, windowsize, leap, oversampling, scenario_size, observatio
                                                          leap=leap, initial=[1,1,1], relevant_lags=3)
             results_neg = WindowEstimation.moving_window(timeseries=sample_neg, method=method, windowsize=windowsize,
                                                          leap=leap, initial=[1, 1, 1], relevant_lags=3)
-            if method_number == 2 or method_number == 3:
+            if method_number == 3 or method_number == 4:
                 results_pos = -1 * results_pos
                 results_neg = -1 * results_neg
             taus_pos[method_number].append(scipy.stats.kendalltau(range(len(results_pos)),
@@ -251,15 +252,16 @@ def plot_roc_curves_from_cluster_taus(taus_df):
             plt.plot([0, 100], [0, 100], c="black", linestyle="dashed")
             plt.xlim([-0.4, 100])
             plt.ylim([0, 100.4])
-            plt.legend(["Variance " + str(round(roc_curves[0][2],2)), "AC(1) " + str(round(roc_curves[1][2],2)),
-                        "ACS " + str(round(roc_curves[2][2],2)), "PSD " + str(round(roc_curves[3][2],2))], loc="lower right")
+            plt.legend(["Variance [" + str(round(roc_curves[0][2],2)) + "]", "AC(1) [" + str(round(roc_curves[1][2],2)) + "]",
+                    r"$\varphi$ [" + str(round(roc_curves[4][2],2)) + "]",
+                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[2][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[3][2],2)) + "]"], loc="lower right")
             plt.savefig("Plots_Cluster/roc_curve_w" + str(windowsize) + "_o_" + str(observation_length).replace(".","") + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
             plt.show()
 
             
 def get_auc_from_cluster_taus(taus_df):
     auc_dfs = list()
-    for method_number in range(4):
+    for method_number in range(5):
         auc_results = []
         for windowsize in taus_df.index:
             this_auc_results = []
@@ -276,22 +278,6 @@ def get_auc_from_cluster_taus(taus_df):
     auc_dfs = [item for sublist in auc_dfs for item in sublist]
     return auc_dfs
             
-    
-def plot_heat_auc(auc_dfs):
-    method_names = ["Variance", "Lag-1 autocorrelation", "$\lambda$ via ACS", "$\lambda$ via PSD"]
-    save_names = ["var", "ac1", "acs", "psd"]
-    for method in range(4):
-        df = auc_dfs[method]
-        df.columns = np.round(100*df.columns,0).astype(int)
-        df = df.iloc[::-1]
-        cmap=sns.light_palette("seagreen",reverse=False, as_cmap=True)
-        ax = sns.heatmap(df, vmin=0.5, vmax=1, cmap=cmap)
-        plt.title(method_names[method])
-        plt.xlabel("Fraction of the time series used in estimations [\%]")
-        plt.ylabel("Length of each of the $20$ estimation windows in the time series")
-        ax.collections[0].colorbar.set_label("AUC")
-        #plt.savefig("Plots_Cluster/heat_" + save_names[method] + "_" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
-        plt.show()
 
 
 
@@ -321,8 +307,8 @@ def plot_mult_roc_curves_from_taus(taus, observation_length):
                                     roc_curves[method_number][0][round(len(roc_curves[method_number][1])/2)],
                                     c=cols[method_number], marker=markers[method_number], s=80)
         line_labels = ["Variance [" + str(round(roc_curves[0][2],2)) + "]", "AC(1) [" + str(round(roc_curves[1][2],2)) + "]",
-                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[2][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[3][2],2)) + "]",
-                    r"$\varphi$ [" + str(round(roc_curves[4][2],2)) + "]"]
+                    r"$\varphi$ [" + str(round(roc_curves[4][2],2)) + "]",
+                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[2][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[3][2],2)) + "]"]
         legend_lines = [mlines.Line2D([], [], label=line_labels[method], color=cols[method], marker=markers[method], markersize=8) for method in range(5)]
         axs[fig_number].plot([0, 100], [0, 100], c="black", linestyle="dashed")
         axs[fig_number].set_xlim([-1, 101])
@@ -463,9 +449,9 @@ def plot_slices(window_index,obslen_index):
     axs[0].title.set_fontsize(14)
     axs[0].set_xlabel("Fraction of the time series used in estimations [$\%$]",fontsize=12)
     axs[0].set_ylabel("AUC",fontsize=12)
-    for method in range(4):
+    for method in range(5):
         axs[0].plot(np.round(dfs[method].columns,0).astype(int),dfs[method].iloc[window_index,:],c=cols[method])
-    axs[0].legend(["Variance", "AC(1)", "$\lambda^{\mathrm{(ACS)}}$", "$\lambda^{\mathrm{(PSD)}}$",r"$\varphi$"],loc="upper left",fontsize=14, framealpha=1)
+    axs[0].legend(["Variance", "AC(1)",r"$\varphi$", "$\lambda^{\mathrm{(ACS)}}$", "$\lambda^{\mathrm{(PSD)}}$"],loc="upper left",fontsize=14, framealpha=1)
     axs[0].text(-0.17, 0.97, labels[0], transform=axs[0].transAxes,
                             fontsize=20, verticalalignment='top', bbox=props)
     axs[0].tick_params(axis="x",labelsize=14)
@@ -477,19 +463,20 @@ def plot_slices(window_index,obslen_index):
     axs[1].set_xlabel("Length of the time series",fontsize=12)
     for method in range(5):
         axs[1].plot(np.round(dfs[method].index,0).astype(int),dfs[method].iloc[:,obslen_index],c=cols[method])
-    axs[1].legend(["Variance", "AC(1)", "ACS", "PSD"],loc="upper left",fontsize=14, framealpha=1)
+    axs[1].legend(["Variance", "AC(1)",r"$\varphi$", "$\lambda^{\mathrm{(ACS)}}$", "$\lambda^{\mathrm{(PSD)}}$"],loc="upper left",fontsize=14, framealpha=1)
     axs[1].text(-0.17, 0.97, labels[1], transform=axs[1].transAxes,
                             fontsize=20, verticalalignment='top', bbox=props)
     axs[1].tick_params(axis="x",labelsize=14)
     axs[1].tick_params(axis="y",labelsize=14)
     axs[1].grid()
-    #plt.savefig("Plots/slices" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    plt.savefig("Plots/slices" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
 
 
 
 
 def plot_heat_auc(examples = True, slices = True):
+    cmap = "winter"
     number_of_windows = tpr_fpr_auc.number_of_windows
     windowsizes = tpr_fpr_auc.windowsizes
     observation_lengths = tpr_fpr_auc.observation_lengths
@@ -497,10 +484,10 @@ def plot_heat_auc(examples = True, slices = True):
     #number_of_windows = 20
     #windowsizes = [200,350,500,700,900,1100,1300,1500]
     #observation_lengths = [0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
-    method_names = ["Variance estimator", "AC(1) estimator", "$\lambda$ via ACS", "$\lambda$ via PSD", r"$\varphi$ estimator"]
+    method_names = ["Variance estimator", "AC(1) estimator", r"$\varphi$ estimator", "$\lambda$ via ACS", "$\lambda$ via PSD"]
     
     #plt.rcParams.update({'font.size': 20})
-    fig, axs = plt.subplots(nrows=1, ncols=6, gridspec_kw={"width_ratios":[1,1,1,1,0.1]}, figsize=(27,5))
+    fig, axs = plt.subplots(nrows=1, ncols=6, gridspec_kw={"width_ratios":[1,1,1,1,1,0.1]}, figsize=(27,5))
     #fig.tight_layout(pad=2.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for method in range(5):
@@ -538,6 +525,6 @@ def plot_heat_auc(examples = True, slices = True):
     axs[0].set_yticklabels(axs[0].get_yticklabels(), rotation = 0)
     axs[4].collections[0].colorbar.set_label("AUC",fontsize=20)
     axs[4].collections[0].colorbar.ax.tick_params(labelsize=20)
-    #plt.savefig("Plots/heat_" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    plt.savefig("Plots/heat_" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
 
