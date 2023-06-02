@@ -14,7 +14,7 @@ import tpr_fpr_auc
 from matplotlib.patches import Rectangle
 plt.rcParams['text.usetex'] = True
 labels = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
-cols = ["darkblue", "darkred", "darkgoldenrod", "darkgreen","darkmagenta"]
+cols = ["dodgerblue", "darkred", "darkgoldenrod", "darkgreen","darkviolet"]
 markers = ["^", "s", "p", "h","o"]
 methods = [EstimationMethods.calculate_var, EstimationMethods.calculate_acor1, EstimationMethods.phi_gls, EstimationMethods.lambda_acs, EstimationMethods.lambda_psd]
 
@@ -81,7 +81,7 @@ def plot_estimator_distributions(results, sample_size, lambda_, theta_, kappa_, 
         axs[method].axvline(truev, color="red", linestyle="dashed")
         axs[method].axvline(truev + sigma, color="purple", linestyle="dotted", linewidth = 2)
         axs[method].axvline(truev - sigma, color="purple", linestyle="dotted", linewidth = 2)
-        axs[method].text(-0.15, 0.95, labels[method + label_offset], transform=axs[method].transAxes, fontsize=28,
+        axs[method].text(-0.2, 0.95, labels[method + label_offset], transform=axs[method].transAxes, fontsize=28,
                          verticalalignment='top', bbox=props)
     axs[5].axis('off')
     #plt.savefig("Plots/distributions" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
@@ -253,8 +253,8 @@ def plot_roc_curves_from_cluster_taus(taus_df):
             plt.xlim([-0.4, 100])
             plt.ylim([0, 100.4])
             plt.legend(["Variance [" + str(round(roc_curves[0][2],2)) + "]", "AC(1) [" + str(round(roc_curves[1][2],2)) + "]",
-                    r"$\varphi$ [" + str(round(roc_curves[4][2],2)) + "]",
-                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[2][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[3][2],2)) + "]"], loc="lower right")
+                    r"$\varphi$ [" + str(round(roc_curves[2][2],2)) + "]",
+                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[3][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[4][2],2)) + "]"], loc="lower right")
             plt.savefig("Plots_Cluster/roc_curve_w" + str(windowsize) + "_o_" + str(observation_length).replace(".","") + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
             plt.show()
 
@@ -302,13 +302,12 @@ def plot_mult_roc_curves_from_taus(taus, observation_length):
             roc_curves.append(roc_curve(taus_pos[method_number], taus_neg[method_number], probe_count))
         for method_number in range(5):    
             axs[fig_number].plot(roc_curves[method_number][1], roc_curves[method_number][0],c=cols[method_number])
-        for method_number in range(5):
             axs[fig_number].scatter(roc_curves[method_number][1][round(len(roc_curves[method_number][1])/2)],
                                     roc_curves[method_number][0][round(len(roc_curves[method_number][1])/2)],
                                     c=cols[method_number], marker=markers[method_number], s=80)
         line_labels = ["Variance [" + str(round(roc_curves[0][2],2)) + "]", "AC(1) [" + str(round(roc_curves[1][2],2)) + "]",
-                    r"$\varphi$ [" + str(round(roc_curves[4][2],2)) + "]",
-                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[2][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[3][2],2)) + "]"]
+                    r"$\varphi$ [" + str(round(roc_curves[2][2],2)) + "]",
+                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[3][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[4][2],2)) + "]"]
         legend_lines = [mlines.Line2D([], [], label=line_labels[method], color=cols[method], marker=markers[method], markersize=8) for method in range(5)]
         axs[fig_number].plot([0, 100], [0, 100], c="black", linestyle="dashed")
         axs[fig_number].set_xlim([-1, 101])
@@ -487,7 +486,8 @@ def plot_heat_auc(examples = True, slices = True):
     method_names = ["Variance estimator", "AC(1) estimator", r"$\varphi$ estimator", "$\lambda$ via ACS", "$\lambda$ via PSD"]
     
     #plt.rcParams.update({'font.size': 20})
-    fig, axs = plt.subplots(nrows=1, ncols=6, gridspec_kw={"width_ratios":[1,1,1,1,1,0.1]}, figsize=(27,5))
+    fig, axs = plt.subplots(nrows=2, ncols=3, figsize=(12,8))
+    axs = axs.flatten()
     #fig.tight_layout(pad=2.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for method in range(5):
@@ -501,7 +501,7 @@ def plot_heat_auc(examples = True, slices = True):
         auc_df.columns = np.round(100*auc_df.columns,0).astype(int)
         auc_df.index = number_of_windows * auc_df.index
         auc_df = auc_df.iloc[::-1]
-        if method==0:
+        if method==0 or method == 3:
             sns.heatmap(auc_df, ax=axs[method], yticklabels=True, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
         else:
             sns.heatmap(auc_df, ax=axs[method], yticklabels=False, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
@@ -511,20 +511,23 @@ def plot_heat_auc(examples = True, slices = True):
         if slices: 
             axs[method].add_patch(Rectangle((0,7),9,1,fill=False,edgecolor="black", lw=2, linestyle="dashed"))
             axs[method].add_patch(Rectangle((1,0),1,9,fill=False,edgecolor="black", lw=2, linestyle="dotted"))
-        axs[method].set_title(method_names[method],fontsize=20)
+        axs[method].set_title(method_names[method],fontsize=15)
         axs[method].set_xlim([-0.1,9.1])
         axs[method].set_ylim([9.1,-0.1])
         axs[method].set_aspect("equal", adjustable='box')
-        axs[method].text(-0.1, 1.1, labels[method], transform=axs[method].transAxes, fontsize=23,
+        axs[method].text(-0.1, 1.1, labels[method], transform=axs[method].transAxes, fontsize=20,
                          verticalalignment='top', bbox=props)
-        axs[method].tick_params(axis="x",labelsize=20)
-        axs[method].tick_params(axis="y",labelsize=16)
-    fig.text(0.5,0.02, "Fraction of the time series used in estimations [\%]", ha="center", va="center",fontsize=20)
+        axs[method].tick_params(axis="x",labelsize=15)
+    fig.text(0.5,0.03, "Fraction of the time series used in estimations [\%]", ha="center", va="center",fontsize=20)
+    fig.text(0.06,0.5, "Length of the time series", ha="center", va="center",fontsize=20, rotation = 90)
     fig.colorbar(axs[4].collections[0], cax=axs[5])
-    axs[0].set_ylabel("Length of the time series",fontsize=20) 
-    axs[0].set_yticklabels(axs[0].get_yticklabels(), rotation = 0)
-    axs[4].collections[0].colorbar.set_label("AUC",fontsize=20)
-    axs[4].collections[0].colorbar.ax.tick_params(labelsize=20)
-    plt.savefig("Plots/heat_" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
+    #axs[0].set_ylabel("Length of the time series",fontsize=20) 
+    axs[0].set_yticklabels(axs[0].get_yticklabels(), rotation = 0,fontsize=15)
+    #axs[3].set_ylabel("Length of the time series",fontsize=20) 
+    axs[3].set_yticklabels(axs[3].get_yticklabels(), rotation = 0,fontsize=15)
+    axs[4].collections[0].colorbar.set_label("AUC",fontsize=15)
+    axs[4].collections[0].colorbar.ax.tick_params(labelsize=15)
+    #axs[5].axis("off")
+    #plt.savefig("Plots/heat_" + time.strftime("%Y%m%d-%H%M%S"), dpi = 300, bbox_inches='tight')
     plt.show()
 
