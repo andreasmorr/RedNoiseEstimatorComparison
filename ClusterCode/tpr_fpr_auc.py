@@ -14,7 +14,7 @@ number_of_windows = 20
 windowsizes = [100,200,350,500,700,900,1100,1300,1500]
 observation_lengths = [0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
 oversampling = 10
-scenario_size = 1000
+scenario_size = 10#1000
 
 
 
