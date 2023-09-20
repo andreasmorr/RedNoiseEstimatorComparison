@@ -1,0 +1,85 @@
+------------------------------------------------------------
+SLURM JOB ID: 27952693
+64 tasks
+------------------------------------------------------------
+MPI startup(): shm:dapl fabric is unknown or has been removed from the product, please use ofi or shm:ofi instead.
+MPI startup(): I_MPI_DAPL_UD variable has been removed from the product, its value is ignored
+
+MPI startup(): I_MPI_DAPL_UD_PROVIDER variable has been removed from the product, its value is ignored
+
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
+Start time: 2023-09-20 17:25:21; Progress: 0%
