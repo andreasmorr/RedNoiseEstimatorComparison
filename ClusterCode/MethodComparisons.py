@@ -287,6 +287,47 @@ def get_auc_from_cluster_taus(taus_df):
 
 
 
+def plot_two_roc_curves_from_tpr_fpr():
+    number_of_figs = 2
+    observation_length = [1,0.5]
+    fig, axs = plt.subplots(nrows=1, ncols=number_of_figs, figsize=(plt_scale*3.42,plt_scale*2.5),sharey=True)
+    #fig.tight_layout(pad=5.0)
+    props = dict(edgecolor="none", facecolor='white', alpha=0)
+    for fig_number in range(number_of_figs):
+        probe_count = 200
+        roc_curves = []
+        axs[fig_number].set_aspect("equal", adjustable='box')
+        axs[fig_number].set_title("Observed CSD: " + str(round(observation_length[fig_number] * 100)) + "\%", fontsize=15)
+        axs[fig_number].set_xlabel("False positive rate [\%]")
+        if fig_number==0:
+            axs[fig_number].set_ylabel("True positive rate [\%]")
+        for method in range(5):
+            i = 3
+            j = [8, 3][fig_number]
+            df = pd.read_csv("tpr_fpr_auc/" + str(method) + "_" + str(i) + "_" + str(j) + ".csv", index_col=0)
+            roc_curves.append([df.loc["tpr"].values,df.loc["fpr"].values,df.loc["auc"].values[0]])
+        print(roc_curves[0])
+        for method_number in range(5):    
+            axs[fig_number].plot(roc_curves[method_number][1], roc_curves[method_number][0],c=cols[method_number])
+            axs[fig_number].scatter(roc_curves[method_number][1][round(len(roc_curves[method_number][1])/2)],
+                                    roc_curves[method_number][0][round(len(roc_curves[method_number][1])/2)],
+                                    c=cols[method_number], marker=markers[method_number], s=plt_scale*40)
+        line_labels = ["Var [" + str(round(roc_curves[0][2],2)) + "]", "AC(1) [" + str(round(roc_curves[1][2],2)) + "]",
+                    r"$\varphi$ [" + str(round(roc_curves[2][2],2)) + "]",
+                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[3][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[4][2],2)) + "]"]
+        legend_lines = [mlines.Line2D([], [], label=line_labels[method], color=cols[method], marker=markers[method], markersize=plt_scale*4) for method in range(5)]
+        axs[fig_number].plot([0, 100], [0, 100], c="black", linestyle="dashed")
+        axs[fig_number].set_xlim([-1, 101])
+        axs[fig_number].set_xticks([0,25,50,75,100])
+        axs[fig_number].set_ylim([-1, 101])
+        axs[fig_number].set_yticks([0,25,50,75,100])
+        axs[fig_number].legend(handles=legend_lines, loc="lower right", framealpha=1, fontsize=10)
+        axs[fig_number].text(0.86, 0.62, labels[fig_number], transform=axs[fig_number].transAxes, verticalalignment='top', bbox=props)
+        axs[fig_number].grid()
+    #plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S") + ".pdf", dpi = 300, bbox_inches='tight')
+    plt.show()
+
+
 def plot_mult_roc_curves_from_taus(taus, observation_length):
     number_of_figs = len(taus)
     fig, axs = plt.subplots(nrows=1, ncols=number_of_figs, figsize=(plt_scale*3.42,plt_scale*2.5),sharey=True)
