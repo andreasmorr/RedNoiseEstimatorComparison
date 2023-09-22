@@ -1,0 +1,11 @@
+------------------------------------------------------------
+SLURM JOB ID: 28052802
+1 tasks
+------------------------------------------------------------
+MPI startup(): shm:dapl fabric is unknown or has been removed from the product, please use ofi or shm:ofi instead.
+MPI startup(): I_MPI_DAPL_UD variable has been removed from the product, its value is ignored
+
+MPI startup(): I_MPI_DAPL_UD_PROVIDER variable has been removed from the product, its value is ignored
+
+Start time: 2023-09-22 11:22:23; Progress: 0%
+End time: 2023-09-22 11:37:30; Progress: 0%
