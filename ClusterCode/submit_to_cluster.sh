@@ -5,9 +5,9 @@
 #SBATCH --output=%x-%j.out 
 #SBATCH --error=%x-%j.err
 #SBATCH --account=tipes
-#SBATCH --ntasks=64
-#SBATCH --nodes=16
-#SBATCH --ntasks-per-node=6
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --workdir=/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/
 
@@ -21,7 +21,7 @@ source activate env_andreasm
 
 export I_MPI_PMI_LIBRARY=/p/system/slurm/lib/libpmi.so
 
-srun -n 81 python run_part.py
+srun -n 1 python run_part.py
 
 
 
