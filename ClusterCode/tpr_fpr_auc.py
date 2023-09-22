@@ -19,8 +19,8 @@ scenario_size = 2000
 
 
 def get_tpr_fpr_auc(i_,j_):
-    #if not os.path.exists("tpr_fpr_auc"):
-    #    os.makedirs("tpr_fpr_auc")
+    if not os.path.exists("./tpr_fpr_auc"):
+        os.makedirs("./tpr_fpr_auc")
     windowsize=windowsizes[i_]
     observation_length=observation_lengths[j_]
     n = number_of_windows*windowsize
@@ -29,4 +29,4 @@ def get_tpr_fpr_auc(i_,j_):
     for method in range(5):
         roc_data = MethodComparisons.roc_curve(np.array(taus[0][method]), np.array(taus[1][method]),probe_count=200)
         roc_data = [roc_data[0], roc_data[1], np.array([roc_data[2]])]
-        pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+        pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("./tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
