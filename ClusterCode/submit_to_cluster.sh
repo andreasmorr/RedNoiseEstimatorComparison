@@ -5,10 +5,8 @@
 #SBATCH --output=%x-%j.out 
 #SBATCH --error=%x-%j.err
 #SBATCH --account=tipes
-#SBATCH --ntasks=1
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=1
 #SBATCH --workdir=/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/
 
 echo "------------------------------------------------------------"
