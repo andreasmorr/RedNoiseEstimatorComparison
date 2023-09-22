@@ -3,50 +3,6 @@ srun: Warning: can't honor --ntasks-per-node set to 6 which doesn't match the re
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
 Traceback (most recent call last):
   File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
     tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
@@ -115,130 +71,14 @@ Traceback (most recent call last):
   File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
     raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
 OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 Traceback (most recent call last):
   File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
     tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
@@ -431,54 +271,6 @@ Traceback (most recent call last):
   File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
     raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
 OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
@@ -503,6 +295,10 @@ Traceback (most recent call last):
   File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
     raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
 OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 Traceback (most recent call last):
   File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
     tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
@@ -523,34 +319,6 @@ Traceback (most recent call last):
   File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
     raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
 OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 Traceback (most recent call last):
   File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
     tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
@@ -655,50 +423,6 @@ Traceback (most recent call last):
   File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
     raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
 OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
@@ -763,50 +487,18 @@ Traceback (most recent call last):
   File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
     raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
 OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 Traceback (most recent call last):
   File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
     tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
@@ -1051,214 +743,6 @@ Traceback (most recent call last):
   File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
     raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
 OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
-  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-Traceback (most recent call last):
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
-    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
-  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
-    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
-    return func(*args, **kwargs)
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
-    csv_formatter.save()
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
-    with get_handle(
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
-    check_parent_directory(str(handle))
-  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
-    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
-OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
 Traceback (most recent call last):
   File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
     tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
@@ -1367,6 +851,50 @@ Traceback (most recent call last):
   File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
     raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
 OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
 Traceback (most recent call last):
   File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
     tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
@@ -1431,6 +959,595 @@ OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
 /home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
   theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** STEP 27964711.0 ON cs-f14c03b03 CANCELLED AT 2023-09-21T09:21:39 ***
-slurmstepd: error: *** JOB 27964711 ON cs-f14c03b03 CANCELLED AT 2023-09-21T09:21:39 ***
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
+Traceback (most recent call last):
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/run_part.py", line 13, in <module>
+    tpr_fpr_auc.get_tpr_fpr_auc(i_,j_)
+  File "/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/tpr_fpr_auc.py", line 32, in get_tpr_fpr_auc
+    pd.DataFrame(roc_data,index=["tpr", "fpr", "auc"]).to_csv("tpr_fpr_auc/" + str(method) + "_" + str(i_) + "_" + str(j_) + ".csv")
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/core/generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 241, in save
+    with get_handle(
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/andreasm/.conda/envs/env_andreasm/lib/python3.10/site-packages/pandas/io/common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'tpr_fpr_auc'
