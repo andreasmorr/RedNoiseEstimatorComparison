@@ -306,7 +306,6 @@ def plot_two_roc_curves_from_tpr_fpr():
             j = [8, 3][fig_number]
             df = pd.read_csv("tpr_fpr_auc/" + str(method) + "_" + str(i) + "_" + str(j) + ".csv", index_col=0)
             roc_curves.append([df.loc["tpr"].values,df.loc["fpr"].values,df.loc["auc"].values[0]])
-        print(roc_curves[0])
         for method_number in range(5):    
             axs[fig_number].plot(roc_curves[method_number][1], roc_curves[method_number][0],c=cols[method_number])
             axs[fig_number].scatter(roc_curves[method_number][1][round(len(roc_curves[method_number][1])/2)],
@@ -324,7 +323,7 @@ def plot_two_roc_curves_from_tpr_fpr():
         axs[fig_number].legend(handles=legend_lines, loc="lower right", framealpha=1, fontsize=10)
         axs[fig_number].text(0.86, 0.62, labels[fig_number], transform=axs[fig_number].transAxes, verticalalignment='top', bbox=props)
         axs[fig_number].grid()
-    #plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S") + ".pdf", dpi = 300, bbox_inches='tight')
+    plt.savefig("Plots/roc_curve" + time.strftime("%Y%m%d-%H%M%S") + ".pdf", dpi = 300, bbox_inches='tight')
     plt.show()
 
 
