@@ -1,4 +1,0 @@
-srun: Warning: can't honor --ntasks-per-node set to 6 which doesn't match the requested tasks 81 with the number of requested nodes 16. Ignoring --ntasks-per-node.
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** STEP 26673569.0 ON cs-h14c01b02 CANCELLED AT 2023-05-19T12:47:40 ***
-slurmstepd: error: *** JOB 26673569 ON cs-h14c01b02 CANCELLED AT 2023-05-19T12:47:40 ***

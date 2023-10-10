@@ -19,8 +19,6 @@ scenario_size = 2000
 
 
 def get_tpr_fpr_auc(i_,j_):
-    #if not os.path.exists("tpr_fpr_auc"):
-    #    os.makedirs("tpr_fpr_auc")
     windowsize=windowsizes[i_]
     observation_length=observation_lengths[j_]
     n = number_of_windows*windowsize

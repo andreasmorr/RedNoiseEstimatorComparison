@@ -221,77 +221,11 @@ def comparison_taus(n, windowsize, leap, oversampling, scenario_size, observatio
     return [taus_pos,taus_neg]
 
 
-def cluster_roc_curves(number_of_windows, windowsizes, oversampling, scenario_size, observation_lengths):
-    tau_results=[]
-    for i in range(len(windowsizes)):
-        tau_results.append([])
-        windowsize=windowsizes[i]
-        for j in range(len(observation_lengths)):
-            observation_length=observation_lengths[j]
-            n = number_of_windows*windowsize
-            leap = windowsize
-            tau_results[i].append(comparison_taus(n, windowsize, leap, oversampling, scenario_size, observation_length))
-    taus_df = pd.DataFrame(tau_results, index=windowsizes, columns=observation_lengths)
-    return taus_df
-
-
-
-def plot_roc_curves_from_cluster_taus(taus_df):
-    for windowsize in taus_df.index:
-        for observation_length in taus_df.columns:
-            taus = taus_df.loc[windowsize,observation_length]
-            taus_pos = taus[0]
-            taus_neg = taus[1]
-            probe_count = 200
-            roc_curves = []
-            #plt.rcParams["figure.figsize"] = (8, 8)
-            plt.title("Assessment of Indicator trends after " + str(round(observation_length * 100)) + "\% of CSD")
-            plt.xlabel("False Positive Rate [\%]")
-            plt.ylabel("True Positive Rate [\%]")
-            for method_number in range(5):
-                roc_curves.append(roc_curve(taus_pos[method_number], taus_neg[method_number], probe_count))
-                plt.plot(roc_curves[method_number][1], roc_curves[method_number][0], c=cols[method_number])
-            for method_number in range(5):
-                plt.scatter(roc_curves[method_number][1][round(len(roc_curves[method_number][1])/2)],
-                            roc_curves[method_number][0][round(len(roc_curves[method_number][1])/2)],c=cols[method_number],
-                            marker="*", s=40)
-            plt.plot([0, 100], [0, 100], c="black", linestyle="dashed")
-            plt.xlim([-0.4, 100])
-            plt.ylim([0, 100.4])
-            plt.legend(["Variance [" + str(round(roc_curves[0][2],2)) + "]", "AC(1) [" + str(round(roc_curves[1][2],2)) + "]",
-                    r"$\varphi$ [" + str(round(roc_curves[2][2],2)) + "]",
-                    "$\lambda^{\mathrm{(ACS)}}$ [" + str(round(roc_curves[3][2],2)) + "]", "$\lambda^{\mathrm{(PSD)}}$ [" + str(round(roc_curves[4][2],2)) + "]"], loc="lower right")
-            plt.savefig("Plots_Cluster/roc_curve_w" + str(windowsize) + "_o_" + str(observation_length).replace(".","") + time.strftime("%Y%m%d-%H%M%S") + ".pdf", dpi = 300, bbox_inches='tight')
-            plt.show()
-
-            
-def get_auc_from_cluster_taus(taus_df):
-    auc_dfs = list()
-    for method_number in range(5):
-        auc_results = []
-        for windowsize in taus_df.index:
-            this_auc_results = []
-            for observation_length in taus_df.columns:
-                taus = taus_df.loc[windowsize,observation_length]
-                taus_pos = taus[0]
-                taus_neg = taus[1]
-                probe_count = 200 
-                auc = roc_curve(taus_pos[method_number], taus_neg[method_number], probe_count)[2]
-                this_auc_results.append(auc)
-            auc_results.append(this_auc_results)
-        auc_df = pd.DataFrame(auc_results, index=taus_df.index, columns = taus_df.columns)
-        auc_dfs.append([auc_df])
-    auc_dfs = [item for sublist in auc_dfs for item in sublist]
-    return auc_dfs
-            
-
-
 
 def plot_two_roc_curves_from_tpr_fpr():
     number_of_figs = 2
     observation_length = [1,0.5]
     fig, axs = plt.subplots(nrows=1, ncols=number_of_figs, figsize=(plt_scale*3.42,plt_scale*2.5),sharey=True)
-    #fig.tight_layout(pad=5.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for fig_number in range(number_of_figs):
         probe_count = 200
@@ -330,7 +264,6 @@ def plot_two_roc_curves_from_tpr_fpr():
 def plot_mult_roc_curves_from_taus(taus, observation_length):
     number_of_figs = len(taus)
     fig, axs = plt.subplots(nrows=1, ncols=number_of_figs, figsize=(plt_scale*3.42,plt_scale*2.5),sharey=True)
-    #fig.tight_layout(pad=5.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for fig_number in range(number_of_figs):
         taus_pos = taus[fig_number][0]
@@ -400,6 +333,8 @@ def plot_example_est(n, observation_length, windowsize, leap, lambda_scale, thet
     scenA.plot([max(theta_max, kappa_max) for x in theta_], linestyle="dashed", color="red")
     scenA.text(labelx, 0.25, labels[0], transform=scenA.transAxes,
                verticalalignment='top', bbox=props)
+    scenA.text(0.45, 0.9, "True CSD", transform=scenA.transAxes,
+               verticalalignment='top', horizontalalignment="right",bbox=props)
     scenA.set_ylim([0,max(theta_max, kappa_max)+0.2])
     scenA.set_yticks(range(round(max(theta_max, kappa_max)+1)))
     scenA.plot([lambda_scale_min for x in range(500)], linestyle="dashed", color="red")
@@ -413,6 +348,8 @@ def plot_example_est(n, observation_length, windowsize, leap, lambda_scale, thet
     scenB.plot([max(theta_max, kappa_max) for x in theta_], linestyle="dashed", color="red")
     scenB.text(labelx, 0.25, labels[1], transform=scenB.transAxes,
                verticalalignment='top', bbox=props)
+    scenB.text(0.45, 0.9, "No CSD", transform=scenB.transAxes,
+               verticalalignment='top', horizontalalignment="right", bbox=props)
     scenB.set_ylim([0, max(theta_max, kappa_max) + 0.2])
     scenB.set_yticks(scenA.get_yticks())
     scenB.set_yticklabels([])
@@ -492,7 +429,6 @@ def plot_slices(window_index,obslen_index):
     #observation_lengths = [0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
     
     fig, axs = plt.subplots(nrows=1, ncols=2, figsize=(plt_scale*3.42,plt_scale*1.5),sharey=True)
-    #fig.tight_layout(pad=5.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     
     dfs = []
@@ -507,7 +443,6 @@ def plot_slices(window_index,obslen_index):
         auc_df.columns = np.round(100*auc_df.columns,0).astype(int)
         auc_df.index = number_of_windows * auc_df.index
         dfs.append(auc_df)
-        #auc_df = auc_df.iloc[::-1]
     
     axs[0].set_title("Length: " + str(windowsizes[window_index]*number_of_windows), fontsize=15)
     axs[0].set_xlabel("Fraction of CSD observed\n in estimations [$\%$]")
@@ -516,7 +451,6 @@ def plot_slices(window_index,obslen_index):
     axs[0].set_yticks([0.5,0.6,0.7,0.8,0.9,1])
     for method in range(5):
         axs[0].plot(np.round(dfs[method].columns,0).astype(int),dfs[method].iloc[window_index,:],c=cols[method])
-    #axs[0].legend(["Var", "AC(1)",r"$\varphi$", "$\lambda^{\mathrm{(ACS)}}$", "$\lambda^{\mathrm{(PSD)}}$"],loc="upper left", framealpha=1)
     axs[0].text(0.055, 0.94, labels[0], transform=axs[0].transAxes,
                             verticalalignment='top', bbox=props)
     axs[0].grid()
@@ -525,7 +459,7 @@ def plot_slices(window_index,obslen_index):
     axs[1].set_xlabel("Length of the time series")
     for method in range(5):
         axs[1].plot(np.round(dfs[method].index/1000,0).astype(int),dfs[method].iloc[:,obslen_index],c=cols[method])
-    axs[1].legend(["Var", "AC(1)",r"$\varphi$", "$\lambda^{\mathrm{(ACS)}}$", "$\lambda^{\mathrm{(PSD)}}$"],loc="upper right", framealpha=1,ncol=2, columnspacing=plt_scale*0.3, fontsize=plt_scale*6.2)
+    axs[1].legend(["Var", "AC(1)",r"$\varphi$", "$\lambda^{\mathrm{(ACS)}}$", "$\lambda^{\mathrm{(PSD)}}$"],loc="upper right", framealpha=0.7,ncol=2, columnspacing=plt_scale*0.3, fontsize=plt_scale*6.2)
     axs[1].text(0.025, 0.94, labels[1], transform=axs[1].transAxes,
                             verticalalignment='top', bbox=props)
     axs[1].text(1.02, 0.08, "x$10^3$", transform=axs[1].transAxes,
@@ -554,7 +488,6 @@ def plot_heat_auc(examples = True, slices = True):
     
     fig, axs = plt.subplots(nrows=2, ncols=3, figsize=(plt_scale*3.42,plt_scale*2.7))
     axs = axs.flatten()
-    #fig.tight_layout(pad=2.0)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for method in range(5):
         aucs = []
@@ -579,11 +512,11 @@ def plot_heat_auc(examples = True, slices = True):
         if xticks:
             axs[method].set_xticks([0.5,2.5,4.5,6.5,8.5])
         if examples:
-            axs[method].add_patch(Rectangle((7,5),1,1,fill=False,edgecolor="red", lw=plt_scale*1))
-            axs[method].add_patch(Rectangle((2,5),1,1,fill=False,edgecolor="pink", lw=plt_scale*1))
+            axs[method].add_patch(Rectangle((8,5),1,1,fill=False,edgecolor="red", lw=plt_scale*1))
+            axs[method].add_patch(Rectangle((3,5),1,1,fill=False,edgecolor="pink", lw=plt_scale*1))
         if slices: 
             axs[method].add_patch(Rectangle((0,7),9,1,fill=False,edgecolor="black", lw=plt_scale*1, linestyle="dashed"))
-            axs[method].add_patch(Rectangle((1,0),1,9,fill=False,edgecolor="black", lw=plt_scale*1, linestyle="dotted"))
+            axs[method].add_patch(Rectangle((2,0),1,9,fill=False,edgecolor="black", lw=plt_scale*1, linestyle="dotted"))
         axs[method].set_title(method_names[method],fontsize=plt_scale*10)
         axs[method].set_xlim([-0.1,9.1])
         axs[method].set_ylim([9.1,-0.1])

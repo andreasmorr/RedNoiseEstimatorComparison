@@ -49,11 +49,11 @@ def plot_cell(file):
     timeseries_v = pd.read_csv("Processed/Cell Data/"+file, index_col=0).loc[:,"v"].values[skip_start:]
     filt_p = ndimage.gaussian_filter1d(timeseries_p,filter_length)
     filt_v = ndimage.gaussian_filter1d(timeseries_v,filter_length)
-    d1 = np.diff(filt_v)
+    d1 = np.diff(1000*filt_v)
     d1 = np.append(d1,d1[-1])
-    d2 = np.diff(d1)
+    d2 = np.diff(1000*d1)
     d2 = np.append(d2,d2[-1])
-    curvature = d2/(1+d1**2)**(3/2)
+    curvature = np.convolve(d2/(1+d1**2)**(3/2),np.ones(100),mode="same")
     tippp = np.argmin(curvature[:5000])-10000
 
     leap_ind = range(-10000 + window,tippp,leap)
@@ -74,10 +74,8 @@ def plot_cell(file):
     theocolor = "red"
     samplelinewidth = plt_scale*0.5
     theolinewidth = plt_scale*1
-    acs_marker1 = "D"
-    acs_marker2 = "s"
-    psd_marker1 = "x"
-    psd_marker2 = "+"
+    v_marker = "D"
+    p_marker = "s"
     marker_size = plt_scale*12
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     axs[0].plot(year_ind,timeseries_v, color = v_color, linewidth = samplelinewidth)
@@ -101,17 +99,17 @@ def plot_cell(file):
     ac1plt.set_ylabel("AC(1)")
     axs[2].text(0.013, 0.17, "(c)", transform=axs[2].transAxes, verticalalignment='top', bbox=props)
     axs[2].legend([r"Variance of $V_t-\bar V(t)$",r"AC(1) of $V_t-\bar V(t)$"], loc = "upper right",fontsize=14)
-    axs[3].scatter(leap_ind[:len(acs_lambda_v)],acs_lambda_v, color = v_color,s=marker_size, marker = acs_marker1)
-    axs[3].scatter(leap_ind[:len(psd_lambda_v)],psd_lambda_v, color = v_color,s=marker_size, marker = psd_marker1)
+    axs[3].scatter(leap_ind[:len(acs_lambda_v)],acs_lambda_v, color = v_color,s=marker_size, marker = v_marker)
+    axs[3].scatter(leap_ind[:len(psd_lambda_v)],psd_lambda_v, color = v_color,s=marker_size, facecolors='none', marker = v_marker)
     axs[3].axvline(tippp, color = "grey")
     axs[3].set_ylabel("Stability of $V$")
     axs[3].yaxis.set_label_coords(-0.1,.5)
     axs[3].text(0.015, 0.17, "(d)", transform=axs[3].transAxes, verticalalignment='top', bbox=props)
     axs[3].legend([r"$\lambda^\mathrm{(ACS)}$ on $V_t-\bar V(t)$",r"$\lambda^\mathrm{(PSD)}$ on $V_t-\bar V(t)$"], loc = "upper right",fontsize=14)
-    axs[4].scatter(leap_ind[:len(acs_theta_v)],acs_theta_v, color = v_color,s=marker_size, marker = acs_marker1)
-    axs[4].scatter(leap_ind[:len(acs_theta_p)],acs_theta_p, color = p_color,s=marker_size, marker = acs_marker2)
-    axs[4].scatter(leap_ind[:len(psd_theta_v)],psd_theta_v, color = v_color,s=marker_size, marker = psd_marker1)
-    axs[4].scatter(leap_ind[:len(psd_theta_p)],psd_theta_p, color = p_color,s=marker_size*1.5, marker = psd_marker2)
+    axs[4].scatter(leap_ind[:len(acs_theta_v)],acs_theta_v, color = v_color,s=marker_size, marker = v_marker)
+    axs[4].scatter(leap_ind[:len(acs_theta_p)],acs_theta_p, color = p_color,s=marker_size, marker = p_marker)
+    axs[4].scatter(leap_ind[:len(psd_theta_v)],psd_theta_v, color = v_color,s=marker_size, facecolors='none', marker = v_marker)
+    axs[4].scatter(leap_ind[:len(psd_theta_p)],psd_theta_p, color = p_color,s=marker_size, facecolors='none', marker = p_marker)
     axs[4].axvline(tippp, color = "grey")
     axs[4].set_ylabel("Correlation of $P$")
     axs[4].text(0.013, 0.17, "(e)", transform=axs[4].transAxes, verticalalignment='top', bbox=props)
