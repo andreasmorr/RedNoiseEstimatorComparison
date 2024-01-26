@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --qos=short
+#SBATCH --qos=medium
 #SBATCH --job-name=estimator_aucs
 #SBATCH --output=%x-%j.out 
 #SBATCH --error=%x-%j.err
