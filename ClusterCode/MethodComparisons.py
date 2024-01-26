@@ -180,9 +180,9 @@ def comparison_taus(n, windowsize, leap, oversampling, scenario_size, observatio
     lambda_scale_min = 0.3
     lambda_scale_max = 0.5
     theta_min = 0.5
-    theta_max = 4
+    theta_max = 6#4
     kappa_min = 0.5
-    kappa_max = 4
+    kappa_max = 6#4
     taus_pos = [[], [], [], [], []]
     taus_neg = [[], [], [], [], []]
     start = datetime.now()
