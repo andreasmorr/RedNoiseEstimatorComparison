@@ -177,11 +177,11 @@ def roc_curve(pos,neg,probe_count):
 def comparison_taus(n, windowsize, leap, oversampling, scenario_size, observation_length):
     lambda_pos = np.array([np.sqrt(1-i/n) for i in range(n)])
     lambda_neg = np.array([1 for i in range(n)])
-    lambda_scale_min = 0.1#0.3
-    lambda_scale_max = 0.3#0.5
-    theta_min = 0.3#0.5
+    lambda_scale_min = 0.3
+    lambda_scale_max = 0.5
+    theta_min = 0.5
     theta_max = 4
-    kappa_min = 0.3#0.5
+    kappa_min = 0.5
     kappa_max = 4
     taus_pos = [[], [], [], [], []]
     taus_neg = [[], [], [], [], []]
