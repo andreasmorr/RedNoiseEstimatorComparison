@@ -224,7 +224,7 @@ def comparison_taus(n, windowsize, leap, oversampling, scenario_size, observatio
 
 def plot_two_roc_curves_from_tpr_fpr():
     number_of_figs = 2
-    observation_length = [1,0.5]
+    observation_length = [1,0.6]
     fig, axs = plt.subplots(nrows=1, ncols=number_of_figs, figsize=(plt_scale*3.42,plt_scale*2.5),sharey=True)
     props = dict(edgecolor="none", facecolor='white', alpha=0)
     for fig_number in range(number_of_figs):
@@ -236,8 +236,8 @@ def plot_two_roc_curves_from_tpr_fpr():
         if fig_number==0:
             axs[fig_number].set_ylabel("True positive rate [\%]")
         for method in range(5):
-            i = 3
-            j = [8, 3][fig_number]
+            i = 4
+            j = [8, 4][fig_number]
             df = pd.read_csv("tpr_fpr_auc/" + str(method) + "_" + str(i) + "_" + str(j) + ".csv", index_col=0)
             roc_curves.append([df.loc["tpr"].values,df.loc["fpr"].values,df.loc["auc"].values[0]])
         for method_number in range(5):    
@@ -366,7 +366,10 @@ def plot_example_est(n, observation_length, windowsize, leap, lambda_scale, thet
     sampA.set_yticks([])
     sampA.text(labelx, 0.28, labels[2], transform=sampA.transAxes,
                verticalalignment='top', bbox=props)
-    sampA.legend(["$X_t$"],fontsize=plt_scale*6)
+    if(observation_length==1):
+        sampA.legend(["$X_t$"],fontsize=plt_scale*6, loc="upper left")
+    else:
+        sampA.legend(["$X_t$"],fontsize=plt_scale*6, loc="upper right")
 
     sampB.plot(sample_neg, linewidth=plt_scale*0.5, color="black")
     sampB.axvline(len(theta_), color="lightgrey")
@@ -379,7 +382,10 @@ def plot_example_est(n, observation_length, windowsize, leap, lambda_scale, thet
     sampB.set_yticks([])
     sampB.text(labelx, 0.28, labels[3], transform=sampB.transAxes,
                verticalalignment='top', bbox=props)
-    sampB.legend(["$X_t$"],fontsize=plt_scale*6)
+    if(observation_length==1):
+        sampB.legend(["$X_t$"],fontsize=plt_scale*6, loc="upper left")
+    else:
+        sampB.legend(["$X_t$"],fontsize=plt_scale*6, loc="upper right")
     
     estA.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_var(sample_pos[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=plt_scale*1, color="black",linestyle = "dashed")
     estA.plot([0],[0], linewidth=plt_scale*1, color="black",linestyle = "dotted")
@@ -395,7 +401,7 @@ def plot_example_est(n, observation_length, windowsize, leap, lambda_scale, thet
     estA2.set_yticks([])
     estA.text(0.89, 0.28, labels[4], transform=estA.transAxes,
                verticalalignment='top', bbox=props)
-    estA.legend(["Var","AC(1)"],fontsize=plt_scale*6)
+    estA.legend(["Var","AC(1)"],fontsize=plt_scale*5.5)
     estA.set_xlabel("Time $t$")
 
     estB.plot(range(round(windowsize/2),short_n,leap), [EstimationMethods.calculate_var(sample_neg[j:j+windowsize]) for j in range(0,short_n,leap)], linewidth=plt_scale*1, color="black",linestyle = "dashed")
@@ -411,7 +417,7 @@ def plot_example_est(n, observation_length, windowsize, leap, lambda_scale, thet
     estB2.set_yticks([])
     estB.text(0.89, 0.28, labels[5], transform=estB.transAxes,
                verticalalignment='top', bbox=props)
-    estB.legend(["Var","AC(1)"],fontsize=plt_scale*6)
+    estB.legend(["Var","AC(1)"],fontsize=plt_scale*5.5)
     estB.set_xlabel("Time $t$")
 
     fig.subplots_adjust(hspace=.05, wspace=0.05)
@@ -458,8 +464,11 @@ def plot_slices(window_index,obslen_index):
     axs[1].set_title("Observed CSD: " + str(round(observation_lengths[obslen_index]*100)) + "$\%$", fontsize=15)
     axs[1].set_xlabel("Length of the time series")
     for method in range(5):
-        axs[1].plot(np.round(dfs[method].index/1000,0).astype(int),dfs[method].iloc[:,obslen_index],c=cols[method])
-    axs[1].legend(["Var", "AC(1)",r"$\varphi$", "$\lambda^{\mathrm{(ACS)}}$", "$\lambda^{\mathrm{(PSD)}}$"],loc="upper right", framealpha=0.7,ncol=2, columnspacing=plt_scale*0.3, fontsize=plt_scale*6.2)
+        axs[1].plot(np.round(dfs[method].index/1000,0).astype(int),dfs[method].iloc[:,obslen_index],c=cols[method], label=" ")
+    handles, legendlabels = axs[1].get_legend_handles_labels()
+    legendlabels = ["Var", "AC(1)",r"$\varphi$", "$\lambda^{\mathrm{(ACS)}}$", "$\lambda^{\mathrm{(PSD)}}$"]
+    order = [0,3,1,4,2]
+    axs[1].legend([handles[idx] for idx in order],[legendlabels[idx] for idx in order],loc="upper right", bbox_to_anchor=(1,0.42), framealpha=0.7,ncol=3, columnspacing=plt_scale*0.1, fontsize=plt_scale*5.5)
     axs[1].text(0.025, 0.94, labels[1], transform=axs[1].transAxes,
                             verticalalignment='top', bbox=props)
     axs[1].text(1.02, 0.08, "x$10^3$", transform=axs[1].transAxes,
@@ -511,12 +520,12 @@ def plot_heat_auc(examples = True, slices = True):
         sns.heatmap(auc_df, ax=axs[method], xticklabels=xticks, yticklabels=yticks, cbar=False, vmin=0.5, vmax=1, cmap=cmap)
         if xticks:
             axs[method].set_xticks([0.5,2.5,4.5,6.5,8.5])
-        if examples:
-            axs[method].add_patch(Rectangle((8,5),1,1,fill=False,edgecolor="red", lw=plt_scale*1))
-            axs[method].add_patch(Rectangle((3,5),1,1,fill=False,edgecolor="pink", lw=plt_scale*1))
         if slices: 
-            axs[method].add_patch(Rectangle((0,7),9,1,fill=False,edgecolor="black", lw=plt_scale*1, linestyle="dashed"))
-            axs[method].add_patch(Rectangle((2,0),1,9,fill=False,edgecolor="black", lw=plt_scale*1, linestyle="dotted"))
+            axs[method].add_patch(Rectangle((0,4),9,1,fill=False,edgecolor="black", lw=plt_scale*1, linestyle="dashed"))
+            axs[method].add_patch(Rectangle((4,0),1,9,fill=False,edgecolor="black", lw=plt_scale*1, linestyle="dotted"))
+        if examples:
+            axs[method].add_patch(Rectangle((8,4),1,1,fill=False,edgecolor="red", lw=plt_scale*1))
+            axs[method].add_patch(Rectangle((4,4),1,1,fill=False,edgecolor="pink", lw=plt_scale*1))
         axs[method].set_title(method_names[method],fontsize=plt_scale*10)
         axs[method].set_xlim([-0.1,9.1])
         axs[method].set_ylim([9.1,-0.1])
