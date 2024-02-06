@@ -1,0 +1,181 @@
+srun: Warning: can't honor --ntasks-per-node set to 6 which doesn't match the requested tasks 81 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:64: RuntimeWarning: invalid value encountered in log
+  theoretical_psd = np.log(frequency_mean(theoretical_psd))
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:55: RuntimeWarning: invalid value encountered in double_scalars
+  theoretical_psd = np.array([kappa_**2/(2*lambda_*theta_*(lambda_**2-theta_**2))*(lambda_*(1 - etheta_ ** -2)
+/home/andreasm/RedNoiseEstimatorComparison/ClusterCode/EstimationMethods.py:64: RuntimeWarning: invalid value encountered in log
+  theoretical_psd = np.log(frequency_mean(theoretical_psd))
