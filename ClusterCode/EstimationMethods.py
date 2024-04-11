@@ -71,7 +71,7 @@ def error_psd(params, n, observed_psd):
 
 def lambda_psd(timeseries, **kwargs):
     observed_psd = np.log(frequency_mean(power_spectrum(timeseries)))
-    params = optimize.fmin(error_psd, kwargs["initial"], args=(len(timeseries), observed_psd), disp=False)
+    params = optimize.fmin(error_psd, kwargs["initial"], args=(len(timeseries), observed_psd), maxiter=100000, disp=False)
     if "return_all_params" in kwargs and kwargs.get("return_all_params"):
         return [min([abs(params[0]), abs(params[1])]), max([abs(params[0]), abs(params[1])]),
                 abs(params[2])]
@@ -104,7 +104,7 @@ def error_acs(params, observed_ac):
 
 def lambda_acs(timeseries, **kwargs):
     observed_ac = acor_struc(timeseries, kwargs["relevant_lags"])
-    params = optimize.fmin(error_acs, kwargs["initial"], args=(observed_ac,), disp=False)
+    params = optimize.fmin(error_acs, kwargs["initial"], args=(observed_ac,), maxiter=100000, disp=False)
     if "return_all_params" in kwargs and kwargs.get("return_all_params"):
         return [min([abs(params[0]), abs(params[1])]), max([abs(params[0]), abs(params[1])])]
     else:
